@@ -158,16 +158,16 @@ function slideDerection(evt){
 	$("body").on("keyup",function(evt){
 		switch(evt.which){
 			case 37 :
-				executeTimes(slideLeft,1);
+				executeTimes(slideLeft,2);
 				break;
 			case 38 :
-				executeTimes(slideUp,1);
+				executeTimes(slideUp,2);
 				break;
 			case 39 :
-				executeTimes(slideRight,1);
+				executeTimes(slideRight,2);
 				break;
 			case 40 :
-				executeTimes(slideDown,1);
+				executeTimes(slideDown,2);
 				break;
 		};		
 		if( block1024.actived ){	
