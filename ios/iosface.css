@@ -42,8 +42,8 @@ nav div.top span{
 	float: left;
 	width: 80px;
 	height: 12px;
-	line-height: 12px;
-	font-size: 8px;
+	line-height: 20px;
+	font-size: 12px;
 	cursor: default;
 }
 .left{
