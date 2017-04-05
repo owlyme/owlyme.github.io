@@ -28,19 +28,35 @@ section div{
 	height: 400px;
 	margin: 0 auto;
 }
-section div ul#outerbox{
+section div ul#gridbox, section div ul#movebox{
 	width: 400px;
 	height: 400px;
-	position: relative;
+	position: absolute;
 	background: #888;	
 }
-section  div ul#outerbox li.movebox{
+section div ul#movebox{
+	background: none;	
+}
+section  div ul#gridbox li.grid,
+section  div ul#movebox li.moveblock {
 	position: absolute;
 	width: 100px;
 	height: 100px;
 	text-align: center;
 	line-height: 100px;
 	border: 1px solid rgba(220,200,201,0.5);
+}
+section  div ul#movebox li.moveblock {
+	z-index: 1;
+}
+section  div ul#gridbox li.grid span{
+	position: absolute;
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: #eee;
+	color: #222;
+	z-index: 1;
 }
 .obstacleBlock{
 	background: #bbb;
@@ -78,11 +94,100 @@ section div h2{
 	border: none;
 }
 
+.transiton{
+  -webkit-transition: top .035s, left .035s, opacity 1s;
+  -moz-transition: top .035s, left .035s, opacity 1s;
+  transition: top .035s, left .035s, opacity 1s;
+}
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
 
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+@-moz-keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
 
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+@keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
 
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+.scale {
+  -webkit-animation: appear 200ms ease 100ms;
+  -moz-animation: appear 200ms ease 100ms;
+  animation: appear 200ms ease 100ms;
+  -webkit-animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  animation-fill-mode: backwards; }
+@-webkit-keyframes appear-zoom-in {
+  0% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2); }
 
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+@-moz-keyframes appear-zoom-in {
+  0% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2); }
 
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+@keyframes appear-zoom-in {
+  0% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2); }
 
-
-
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
+.scale-zoom-in {
+  -webkit-animation: appear-zoom-in 200ms ease 100ms;
+  -moz-animation: appear-zoom-in 200ms ease 100ms;
+  animation: appear-zoom-in 200ms ease 100ms;
+  -webkit-animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  animation-fill-mode: backwards; }
