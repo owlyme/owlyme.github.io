@@ -392,7 +392,6 @@ function touchMovingDirectionFunction(arg){
 
 	function getStart(evt){
 		var evt = evt.touches[0];
-		alert(22);
 		evt.preventDefault();
 		IOS.startPoint= [evt.clientX, evt.clientY];
 		clientX = IOS.startPoint[0] -IOS.section.offsetLeft;
