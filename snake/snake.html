@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Snake</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width">
+	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>	
+	<script type="text/javascript" src="snake.js"></script>
+	<style type="text/css">
+		*{padding: 0; margin: 0;box-sizing: border-box;}
+		li{
+			list-style: none;
+		}
+		html,body{
+			height: 100%;
+			width: 100%;
+			background: #18968E;
+		}
+		.game{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;			
+		}
+		.clear:after{
+			display: block;
+			clear: both;
+			content: "";			
+			height: 0;			
+		}
+		.grid-box{
+			position: relative;
+			width: 600px;
+			height: 600px;
+			background: #eee;
+		}
+		.grid-box .grid{
+			float: left;
+			width: 30px;
+			height: 30px; 
+			border: 0.5px solid rgba(120,120,120,.5);
+		}
+		#grids , #snake{
+			position: absolute;			
+			overflow: hidden;
+			z-index: 0;
+			width: 600px;
+			height: 600px;
+		}
+		#snake{
+			z-index: 1;
+		}
+		#snake .snake-body , #food{
+			position: absolute;
+			width: 30px;
+			height: 30px; 
+			background: #555;
+		}
+		#food{
+			background: #71d38c;
+		}
+		#snake li:first-child{
+			z-index: 10;
+			background: #3388ff;
+		}
+		.grid-box .score{
+			display: block;
+			position: absolute;
+			right: 10px;
+			top: -40px;
+			width: 240px;		
+			text-align: center;
+			color: #333;
+			font-size: 1.1em;
+			font-weight: 700;
+		}
+		.grid-box .score .score-value{
+			display: inline-block;
+			padding: 0 5px;
+			line-height: 25px;
+			height: 25px;
+			width: 120px;
+			color: #eee;
+			background: #111;
+			border-radius: 5px;
+		}
+		.setting-box-center, .game-over-center{
+			display: none;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			z-index: 30;
+			top: 0px;
+			left: 0px;
+			height: 100%;
+			width: 100%;
+		}
+		.game-over{
+			display: flex;
+			flex-wrap: wrap;			
+			justify-content: center;
+			align-items: center;	
+			background: #1A4F93;
+			border-radius: 10px;
+			box-shadow: 0 0 0 2000px rgba(1,1,1,.5);
+			padding: 30px;
+		}
+		.game-over div{
+			flex: 1 100%;
+			text-align: center;
+			margin: 10px 0;
+			color: #eee;
+			font-size: 1.5em;
+			font-weight: 600;
+		}
+		.game-over .highest-score,
+		.game-over .current-score{
+			font-size: 1.1em;
+		}
+		.game-over button{
+			flex: 0.5 20%;
+			padding: 5px 0;
+			margin: 0 20px;
+			margin-top: 20px;
+			height: 30px;
+			line-height: 20px;
+			font-size: 1.1em;
+			text-align: center;
+			outline: none;
+			border-style: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.game-over button:hover{
+			background: #12aeef;
+		}
+		.game-over button:active{
+			margin-top: 21px;
+			height: 28px;
+			font-size: 1.3em;
+		}
+		.setting{
+			position: absolute;
+			top: -40px;
+			left: 10px;
+			height: 30px;
+			line-height: 30px;
+			padding: 0 5px;
+			background: #bbb;
+			border-radius: 5px;
+		}
+		#setting{			
+			display: flex;			
+			flex-wrap: wrap;
+			justify-content: center;			
+			padding: 30px;
+			background: #DDEDFB;
+			border-radius: 5px;
+		}
+		#setting form{
+			flex: 1 100%;
+			min-width:170px;
+			text-align: center;
+		}
+		#setting button{
+			display: block;
+			flex: 1 40%;
+		}
+		form span{
+			display: inline-block;
+			width: 80px;
+			height: 30px;
+			line-height: 30px;
+			text-align: left;
+		}
+		form input[type="text"]{
+			font-size: 1.3em;
+			padding: 0 5px;
+			width: 80px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+		}
+		form select ,#setting button{
+			width: 80px;
+			height: 20px;
+			line-height: 20px;
+			font-size: 1em;
+		}
+		#setting button{
+			margin-top : 5px;
+		}
+		@media screen and (min-width:375px){
+			.grid-box ,#grids , #snake{
+				width: 360px;
+				height: 360px;
+			}
+			.grid-box{
+				position: relative;
+				background: #eee;
+			}
+			.grid-box .grid, #snake .snake-body , #food{
+				width: 18px;
+				height: 18px;		
+			}
+			.grid-box .grid{
+				float: left;
+				border: 0.5px solid rgba(120,120,120,.5);
+			}
+			#snake .snake-body , #food{
+				position: absolute;
+				background: #555;
+			}
+			#grids , #snake{
+				position: absolute;			
+				overflow: hidden;
+				z-index: 0;				
+			}
+			#snake{
+				z-index: 1;
+			}			
+			#food{
+				background: #71d38c;
+			}
+		}
+		@media screen and (min-width:320px){
+			.grid-box ,#grids , #snake{
+				width: 320px;
+				height: 320px;
+			}
+			.grid-box{
+				position: relative;
+				background: #eee;
+			}
+			.grid-box .grid, #snake .snake-body , #food{
+				width: 16px;
+				height: 16px;		
+			}
+			.grid-box .grid{
+				float: left;
+				border: 0.5px solid rgba(120,120,120,.5);
+			}
+			#snake .snake-body , #food{
+				position: absolute;
+				background: #555;
+			}
+			#grids , #snake{
+				position: absolute;			
+				overflow: hidden;
+				z-index: 0;				
+			}
+			#snake{
+				z-index: 1;
+			}			
+			#food{
+				background: #71d38c;
+			}
+		}
+	
+	</style>
+</head>
+<body>
+<section class="game">
+	<div class="grid-box clear">
+		<div class="setting">Setting</div>		
+		<section class="score">SCORE: <span> 0 </span></section>		
+		<ul id="grids" ></ul>
+		<ul id="snake" ></ul>
+	</div>
+</section>
+<section class="game-over-center">
+	<section class="game-over">	
+		<div>Game over!</div>
+		<div class="highest-score">Highest score: <span> </span></div>
+		<div class="current-score">Current score: <span> </span></div>
+		<button>Try again</button>
+		<button>Quit</button>
+	</section>
+</section>
+<section class="setting-box-center">
+	<div id="setting">
+		<form>
+		<legend>-- setting --------------</legend>
+		<span>LEFT :</span> <input type="text" name="left" 
+		placeholder ="←" >
+		<br/>
+		<span>UP :</span> <input type="text" name="up"  
+		placeholder ="↑" >
+		<br/>
+		<span>RIGHT :</span> <input type="text" name="right"  
+		placeholder ="→" >		
+		<br/>		
+		<span>DOWN :</span> <input type="text" name="down" 
+		placeholder ="↓" >
+		<br/>		
+		<span>LEVEL :</span>
+		<select>
+			<option value="1">easy</option>
+			<option value="2">normal</option>
+			<option value="3">hard</option>
+			<option value="5">terrible</option>
+		</select>
+	</form>
+	<button id="changed">yes</button>
+	<button id="default">no</button>
+	</div>
+</section>
+</body>
+</html>
