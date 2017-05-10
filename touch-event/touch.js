@@ -1,6 +1,7 @@
 window.onload = function (argument) {
 	var btn = document.getElementById('btn');
 	btn.addEventListener('click',startup, false);
+	var log = document.getElementById('log');
 
 	var el = document.getElementById('canvas');
 	startup();
@@ -31,6 +32,11 @@ console.log(evt.changedTouches);
 			//log('touchsatrt:' + i + ".");
 		}
 		console.log(ongoingTouches);
+		var str = '';
+		for(var i = 0; i< ongoingTouches.length ;i++){
+			str += ongoingTouches[i].identifier +" $$$ ";
+		}
+		log.innerText += str+ "\n";
 	};
 	function handleMove(evt){
 		evt.preventDefault();
@@ -52,6 +58,11 @@ console.log(evt.changedTouches);
 			ongoingTouches.splice(idx, 1, touches[i]);
 		}
 		console.log(ongoingTouches);
+		var str = '';
+		for(var i = 0; i< ongoingTouches.length ;i++){
+			str += ongoingTouches[i].identifier +" %%%% ";
+		}
+		log.innerText += str+"\n";
 	};
 	function handleEnd(evt){
 		evt.preventDefault();
