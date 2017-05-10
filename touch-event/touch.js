@@ -17,8 +17,8 @@ window.onload = function (argument) {
 	function handleStart(evt){
 		evt.preventDefault();
 		var ctx = el.getContext('2d');
-		var touches = evt.changedTouches;
-console.log(evt.changedTouches);
+		var touches = evt.touches;
+console.log(evt.touches);
 		for(var i = 0 ; i < touches.length;i++){
 			ongoingTouches.push(touches[i] );
 			var color = colorForTouch(touches[i]);
@@ -37,8 +37,8 @@ console.log(evt.changedTouches);
 	function handleMove(evt){
 		evt.preventDefault();
 		var ctx = el.getContext('2d');
-		var touches = evt.changedTouches;
-console.log(evt.changedTouches);
+		var touches = evt.touches;
+console.log(evt.touches);
 		ctx.lineWidth = 4;
 
 		for(var i =0 ; i< touches.length; i++){
@@ -63,8 +63,8 @@ console.log(evt.changedTouches);
 	function handleEnd(evt){
 		evt.preventDefault();
 		var ctx = el.getContext('2d');
-		var touches = evt.changedTouches;
-console.log(evt.changedTouches);
+		var touches = evt.touches;
+console.log(evt.touches);
 		ctx.lineWidth = 4;
 
 		for( var i =0 ; i< touches.length; i++){
@@ -81,7 +81,7 @@ console.log(evt.changedTouches);
 	};
 	function handleCancel(evt){
 		evt.preventDefault();
-		var touches = evt.changedTouches;
+		var touches = evt.touches;
 
 		for(var i =0; i < touches.length; i++){
 			ongoingTouches.splice(i,1);
@@ -109,7 +109,7 @@ function ongoingTouchIndexById(idToFind){
 var bodys = document.getElementsByTagName('body')[0];
 	bodys.addEventListener('touchmove',function(evt){
 		
-		//console.log(evt.changedTouches);
+		//console.log(evt.touches);
 		
 	},false);
 
