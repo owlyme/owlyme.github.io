@@ -36,7 +36,7 @@ console.log(evt.changedTouches);
 		for(var i = 0; i< ongoingTouches.length ;i++){
 			str += ongoingTouches[i].identifier +" $$$ ";
 		}
-		log.innerText += str+ "\n";
+		log.innerText = str+ "\n";
 	};
 	function handleMove(evt){
 		evt.preventDefault();
@@ -62,7 +62,7 @@ console.log(evt.changedTouches);
 		for(var i = 0; i< ongoingTouches.length ;i++){
 			str += ongoingTouches[i].identifier +" %%%% ";
 		}
-		log.innerText += str+"\n";
+		log.innerText = str+"\n";
 	};
 	function handleEnd(evt){
 		evt.preventDefault();
