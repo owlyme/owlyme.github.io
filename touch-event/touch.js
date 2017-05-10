@@ -10,27 +10,23 @@ window.onload = function (argument) {
 		el.addEventListener('touchend', handleEnd, false);
 		el.addEventListener('touchcancel',handleCancel,false);
 		el.addEventListener('touchmove', handleMove, false);
-		//log('initialized.');
 	}
 
 	var ongoingTouches = [];
 
 	function handleStart(evt){
 		evt.preventDefault();
-		//log('touchsatrt');
 		var ctx = el.getContext('2d');
 		var touches = evt.changedTouches;
 console.log(evt.changedTouches);
-		//for(var i = 0 ; i < touches.length;i++){
-			//log('touchsatrt:'+ i + "...");
-			ongoingTouches.push(touches[0] );
-			var color = colorForTouch(touches[0]);
+		for(var i = 0 ; i < touches.length;i++){
+			ongoingTouches.push(touches[i] );
+			var color = colorForTouch(touches[i]);
 			ctx.beginPath();
-			ctx.arc(touches[0].pageX, touches[0].pageY, 4, 0, 2*Math.PI, false);
+			ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2*Math.PI, false);
 			ctx.fillStyle = color;
 			ctx.fill();
-			//log('touchsatrt:' + i + ".");
-		//}
+		}
 		console.log(ongoingTouches);
 		var str = '';
 		for(var i = 0; i< ongoingTouches.length ;i++){
@@ -45,18 +41,18 @@ console.log(evt.changedTouches);
 console.log(evt.changedTouches);
 		ctx.lineWidth = 4;
 
-		//for(var i =0 ; i< touches.length; i++){
-			var color = colorForTouch(touches[0]);
-			var idx = ongoingTouchIndexById(touches[0].identifier);
+		for(var i =0 ; i< touches.length; i++){
+			var color = colorForTouch(touches[i]);
+			var idx = ongoingTouchIndexById(touches[i].identifier);
 
 			ctx.fillStyle = color;
 			ctx.beginPath();
 			ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-			ctx.lineTo(touches[0].pageX, touches[0].pageY);
+			ctx.lineTo(touches[i].pageX, touches[i].pageY);
 			ctx.closePath();
 			ctx.stroke();
-			ongoingTouches.splice(idx, 1, touches[0]);
-		//}
+			ongoingTouches.splice(idx, 1, touches[i]);
+		}
 		console.log(ongoingTouches);
 		var str = '';
 		for(var i = 0; i< ongoingTouches.length ;i++){
