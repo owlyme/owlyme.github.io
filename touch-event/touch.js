@@ -47,12 +47,12 @@ console.log(evt.changedTouches);
 
 		for(var i =0 ; i< touches.length; i++){
 			var color = colorForTouch(touches[i]);
-			var idx = ongoingTouchIndexById(touches[i].identifier);
+			var idx = ongoingTouchIndexById(touches[0].identifier);
 
 			ctx.fillStyle = color;
 			ctx.beginPath();
 			ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-			ctx.lineTo(touches[i].pageX, touches[i].pageY);
+			ctx.lineTo(touches[0].pageX, touches[0].pageY);
 			ctx.closePath();
 			ctx.stroke();
 			ongoingTouches.splice(idx, 1, touches[i]);
