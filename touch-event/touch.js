@@ -23,10 +23,10 @@ window.onload = function (argument) {
 console.log(evt.changedTouches);
 		for(var i = 0 ; i < touches.length;i++){
 			//log('touchsatrt:'+ i + "...");
-			ongoingTouches.push(touches[i] );
-			var color = colorForTouch(touches[i]);
+			ongoingTouches.push(touches[0] );
+			var color = colorForTouch(touches[0]);
 			ctx.beginPath();
-			ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2*Math.PI, false);
+			ctx.arc(touches[0].pageX, touches[0].pageY, 4, 0, 2*Math.PI, false);
 			ctx.fillStyle = color;
 			ctx.fill();
 			//log('touchsatrt:' + i + ".");
