@@ -21,7 +21,7 @@ window.onload = function (argument) {
 		var ctx = el.getContext('2d');
 		var touches = evt.changedTouches;
 console.log(evt.changedTouches);
-		for(var i = 0 ; i < touches.length;i++){
+		//for(var i = 0 ; i < touches.length;i++){
 			//log('touchsatrt:'+ i + "...");
 			ongoingTouches.push(touches[0] );
 			var color = colorForTouch(touches[0]);
@@ -30,7 +30,7 @@ console.log(evt.changedTouches);
 			ctx.fillStyle = color;
 			ctx.fill();
 			//log('touchsatrt:' + i + ".");
-		}
+		//}
 		console.log(ongoingTouches);
 		var str = '';
 		for(var i = 0; i< ongoingTouches.length ;i++){
@@ -45,8 +45,8 @@ console.log(evt.changedTouches);
 console.log(evt.changedTouches);
 		ctx.lineWidth = 4;
 
-		for(var i =0 ; i< touches.length; i++){
-			var color = colorForTouch(touches[i]);
+		//for(var i =0 ; i< touches.length; i++){
+			var color = colorForTouch(touches[0]);
 			var idx = ongoingTouchIndexById(touches[0].identifier);
 
 			ctx.fillStyle = color;
@@ -55,8 +55,8 @@ console.log(evt.changedTouches);
 			ctx.lineTo(touches[0].pageX, touches[0].pageY);
 			ctx.closePath();
 			ctx.stroke();
-			ongoingTouches.splice(idx, 1, touches[i]);
-		}
+			ongoingTouches.splice(idx, 1, touches[0]);
+		//}
 		console.log(ongoingTouches);
 		var str = '';
 		for(var i = 0; i< ongoingTouches.length ;i++){
