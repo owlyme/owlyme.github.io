@@ -252,13 +252,11 @@ function ongoingTouchIndexById(idToFind){
 					changePoint2x = pointMove1.x - pointMove2.x,
 					changePoint2y = pointMove1.y - pointMove2.y;
 
-				if( changePoint1x*changePoint1x < changePoint2x*changePoint2x || 
-					changePoint1y*changePoint1y < changePoint2y*changePoint2y){
+				if( changePoint1x*changePoint1x < changePoint2x*changePoint2x ){
 					self.elem.style.width = selfWidth + Math.abs(changePoint2x)+'px';
 					self.elem.style.height = selfHeight + Math.abs(changePoint2y) +'px';
 				}
-				if( changePoint1x*changePoint1x > changePoint2x*changePoint2x || 
-					changePoint1y*changePoint1y > changePoint2y*changePoint2y){
+				if( changePoint1x*changePoint1x > changePoint2x*changePoint2x ){
 					self.elem.style.width = selfWidth - Math.abs(changePoint2x) +'px';
 					self.elem.style.height = selfHeight - Math.abs(changePoint2y) +'px'; 
 				}
