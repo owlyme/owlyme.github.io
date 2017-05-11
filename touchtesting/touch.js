@@ -238,7 +238,7 @@ function ongoingTouchIndexById(idToFind){
 				evt.preventDefault();
 
 				var touches = evt.changedTouches;
-					if(touches.length != 2) return;
+					if(touches.length != 2 ) return;
 					pointMove1.idx = touches[0].identifier;
 					pointMove1.x = touches[0].pageX;
 					pointMove1.y = touches[0].pageY;
@@ -262,7 +262,7 @@ function ongoingTouchIndexById(idToFind){
 					self.elem.style.width = selfWidth - changePoint2x*changePoint2x/2;
 					self.elem.style.height = selfHeight - changePoint2y*changePoint2y/2; 
 				}
-				var document.getElementById('log').innerText == touches[0].identifier+',' + touches[1].identifier+'\n';
+				document.getElementById('log').innerText = touches[0].identifier+',' + touches[1].identifier+'\n';
 			};
 
 			function scaleEnd(evt){
@@ -294,8 +294,6 @@ function ongoingTouchIndexById(idToFind){
 			},
 			parentnodes = ele.parentNode;
 		var final = document.getElementsByTagName('html')[0];
-		//offset.x = getStyle(final,'margin-left',true) ;
-		//offset.y = getStyle(final,'margin-top',true);
 
 		while( parentnodes != final){
 			offset.x += parentnodes.offsetLeft- getStyle(parentnodes,'margin-left',true);
