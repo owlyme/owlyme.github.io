@@ -271,7 +271,8 @@ function ongoingTouchIndexById(idToFind){
 					y = touches[0].pageY;
 			};
 			function scaleCancel(evt){
-				var touches = evt.changedTouches;
+				self.elem.style.width = selfWidth;
+				self.elem.style.height = selfHeight
 			};
 		}
 
