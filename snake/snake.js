@@ -40,8 +40,7 @@ $(document).ready(function() {
 			this.score = 0;
 			this.size = parseInt(this.elem.css("width"))/20;
 			this.appendChild();
-			this.getSnakeBody();			
-			console.log(this.size);
+			this.getSnakeBody();	
 			this.getPosition();
 			this.circle();
 			this.creatFood();
@@ -279,6 +278,10 @@ $(document).ready(function() {
 				self.positionList = [];
 				self.elem.html("");
 				$(document).off('keydown');
+				$('.upbtn').off('click');
+				$('.downbtn').off('click');
+				$('.leftbtn').off('click');
+				$('.rightbtn').off('click');
 				self.init();
 			});
 			$('.game-over button').eq(1).on('click',function(){
@@ -363,6 +366,7 @@ $(document).ready(function() {
 
 var snake = Snake("#snake");
 var keys = GetKeyCodes('form input');
+
 $('.setting').on('click',function(){
 	$('.setting-box-center').css('display','flex');
 });
@@ -374,6 +378,7 @@ $('#default').on('click',function(){
 	snake.extend( keys.default() );
 	$('.setting-box-center').css('display','none');
 });
+
 $(document).on('keydown',function(evt){
 	if(evt.which == 32 ){
 		evt.preventDefault();
