@@ -256,10 +256,66 @@
 				background: #71d38c;
 			}
 		}
+		.control-btn{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			z-index: 99;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			border : 2px solid rgba(200,200,200,0.7);
+		}
+		.control-btn .upbtn, 
+		.control-btn .downbtn,
+		.control-btn .leftbtn,
+		.control-btn .rightbtn{
+			position: absolute;
+			width: 33.3%;
+			height: 33.3%;
+			background-color: #fff;
+			background-image: url(images/direction.jpg) ;
+			background-repeat: no-repeat;
+			background-size: 400% ;
+			border-radius: 50%;
+		}
+		.control-btn .upbtn:click, 
+		.control-btn .downbtn:click,
+		.control-btn .leftbtn:click,
+		.control-btn .rightbtn:click{
+			transform: scale(0.9);
+		}
+		.control-btn .upbtn{
+			left: 33.3%;
+			top : 0;
+			background-position: -192px 5px ;
+		}
+		.control-btn .downbtn{
+			left: 33.3%;
+			bottom: 0;
+			background-position: 5px 5px;
+		}
+		.control-btn .leftbtn{
+			left: 0;
+			top: 33.3%;
+			background-position:-128px 5px;
+		}
+		.control-btn .rightbtn{
+			right: 0;
+			top: 33.3%;
+			background-position: -60px 5px;
+		}
+
 	
 	</style>
 </head>
 <body>
+<div class="control-btn">
+	<div class="upbtn"></div>
+	<div class="downbtn"></div>
+	<div class="leftbtn"></div>
+	<div class="rightbtn"></div>
+</div>
 <section class="game">
 	<div class="grid-box clear">
 		<div class="setting">Setting</div>		

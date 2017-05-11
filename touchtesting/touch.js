@@ -1,99 +1,5 @@
-window.onload = function (argument) {/*
-	var btn = document.getElementById('btn');
-	btn.addEventListener('click',startup, false);
-
-	var el = document.getElementById('canvas');
-	//startup();
-	function startup(){		
-		el.addEventListener('touchstart',handleStart, false);
-		el.addEventListener('touchend', handleEnd, false);
-		el.addEventListener('touchcancel',handleCancel,false);
-		el.addEventListener('touchmove', handleMove, false);
-		//log('initialized.');
-	}
-
-	var ongoingTouches = [];
-
-	function handleStart(evt){
-		evt.preventDefault();
-		//log('touchsatrt');
-		var ctx = el.getContext('2d');
-		var touches = evt.changedTouches;
-
-		for(var i = 0 ; i < touches.length;i++){
-			//log('touchsatrt:'+ i + "...");
-			ongoingTouches.push(touches[i] );
-			var color = colorForTouch(touches[i]);
-			ctx.beginPath();
-			ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2*Math.PI, false);
-			ctx.fillStyle = color;
-			ctx.fill();
-			//log('touchsatrt:' + i + ".");
-		}
-	};
-	function handleMove(evt){
-		evt.preventDefault();
-		var ctx = el.getContext('2d');
-		var touches = evt.changedTouches;
-		ctx.lineWidth = 4;
-
-		for(var i =0 ; i< touches.length; i++){
-			var color = colorForTouch(touches[i]);
-			var idx = ongoingTouchIndexById(touches[i].identifier);
-
-			ctx.fillStyle = color;
-			ctx.beginPath();
-			ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-			ctx.lineTo(touches[i].pageX, touches[i].pageY);
-			ctx.closePath();
-			ctx.stroke();
-			ongoingTouches.splice(idx, 1, touches[i]);
-		}
-	};
-	function handleEnd(evt){
-		evt.preventDefault();
-		var ctx = el.getContext('2d');
-		var touches = evt.changedTouches;
-		ctx.lineWidth = 4;
-
-		for( var i =0 ; i< touches.length; i++){
-			var color = colorForTouch(touches[i]);
-			var idx = ongoingTouchIndexById(touches[i].identifier);
-
-			ctx.fillStyle = color;
-			ctx.beginPath();
-			ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-			ctx.lineTo(touches[i].pageX, touches[i].pageY);
-			ongoingTouches.splice(i,1);
-		}
-	};
-	function handleCancel(evt){
-		evt.preventDefault();
-		var touches = evt.changedTouches;
-		for(var i =0; i < touches.length; i++){
-			ongoingTouches.splice(i,1);
-		}
-	}
-	*/
-//----------------------------------------------
-function colorForTouch(touch){
-	var id = touch.identifier;
-	id = id.toString(16);
-	return '#'+id + id +id;
-}
-function ongoingTouchIndexById(idToFind){
-	for(var i = 0; i<ongoingTouches.length; i++){
-		var id = ongoingTouches[i].identifier;
-		if(id == idToFind){
-			return i;
-		}
-	}
-	return -1;
-};
-
-
-//
-(function(){
+window.onload = function (argument) {
+	(function(){
 	var TouchedObj = function(ele){
 		return new TouchedObj.fn(ele);
 	};
@@ -216,8 +122,8 @@ function ongoingTouchIndexById(idToFind){
 
 			self.elem.addEventListener('touchstart',scaleStart, false);
 			self.elem.addEventListener('touchmove', scaleMove, false);
-			//self.elem.addEventListener('touchend', csaleEnd, false);
-			//self.elem.addEventListener('touchcancel', csaleCancel, false);
+			self.elem.addEventListener('touchend', csaleEnd, false);
+			self.elem.addEventListener('touchcancel', csaleCancel, false);
 
 			function scaleStart(evt){
 				var touches = [];
@@ -260,9 +166,6 @@ function ongoingTouchIndexById(idToFind){
 					self.elem.style.width = selfWidth - Math.abs(changePoint2x) +'px';
 					self.elem.style.height = selfHeight - Math.abs(changePoint2y) +'px'; 
 				}
-				document.getElementById('log').innerText =
-					 touches[0].identifier+',' + self.elem.style.width+'\n'+
-					 + touches[1].identifier+'\n' ;
 			};
 
 			function scaleEnd(evt){

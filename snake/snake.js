@@ -109,10 +109,22 @@ $(document).ready(function() {
 		circle : function(){
 			var self = this;
 			$(document).on("keydown",animate);
+			$('.upbtn').on('click',function(evt){
+				animate(evt, self.dirs[1]);
+			});
+			$('.downbtn').on('click',function(evt){
+				animate(evt, self.dirs[3]);
+			});
+			$('.leftbtn').on('click',function(evt){
+				animate(evt, self.dirs[0]);
+			});
+			$('.rightbtn').on('click',function(evt){
+				animate(evt, self.dirs[2]);
+			});
 
-			function animate(evt){
-				//console.log(evt.which);					
-				var direction = evt.which;
+			function animate(evt, value){
+				var direction = value || evt.which;
+
 				if( self.dirs.indexOf(direction) >=0 ){
 					if( self.dead() ) {
 						return;
