@@ -1,4 +1,4 @@
-window.onload = function (argument) {
+window.onload = function (argument) {/*
 	var btn = document.getElementById('btn');
 	btn.addEventListener('click',startup, false);
 
@@ -90,7 +90,7 @@ function ongoingTouchIndexById(idToFind){
 	}
 	return -1;
 };
-
+*/
 
 //
 (function(){
