@@ -254,13 +254,13 @@ function ongoingTouchIndexById(idToFind){
 
 				if( changePoint1x*changePoint1x < changePoint2x*changePoint2x || 
 					changePoint1y*changePoint1y < changePoint2y*changePoint2y){
-					self.elem.style.width = selfWidth + changePoint2x*changePoint2x/2+'px';
-					self.elem.style.height = selfHeight + changePoint2y*changePoint2y/2 +'px';
+					self.elem.style.width = selfWidth + Math.abs(changePoint2x)+'px';
+					self.elem.style.height = selfHeight + Math.abs(changePoint2y) +'px';
 				}
 				if( changePoint1x*changePoint1x > changePoint2x*changePoint2x || 
 					changePoint1y*changePoint1y > changePoint2y*changePoint2y){
-					self.elem.style.width = selfWidth - changePoint2x*changePoint2x/2 +'px';
-					self.elem.style.height = selfHeight - changePoint2y*changePoint2y/2 +'px'; 
+					self.elem.style.width = selfWidth - Math.abs(changePoint2x) +'px';
+					self.elem.style.height = selfHeight - Math.abs(changePoint2y) +'px'; 
 				}
 				document.getElementById('log').innerText =
 					 touches[0].identifier+',' + self.elem.style.width+'\n'+
