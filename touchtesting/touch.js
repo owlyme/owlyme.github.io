@@ -1,4 +1,4 @@
-window.onload = function (argument) {/*
+window.onload = function (argument) {
 	var btn = document.getElementById('btn');
 	btn.addEventListener('click',startup, false);
 
@@ -90,7 +90,6 @@ function ongoingTouchIndexById(idToFind){
 	}
 	return -1;
 };
-*/
 
 //
 (function(){
@@ -306,7 +305,8 @@ function ongoingTouchIndexById(idToFind){
 
 	var touchEle =  document.getElementById('target');
 	
-	TouchedObj(touchEle).scale();/*.slipDirertion({
+	TouchedObj(touchEle).scale();
+	/*.slipDirertion({
 		ele : document.getElementsByClassName('box')[0],
 		left: function(){
 			this.ele.style.background = "red";
@@ -314,7 +314,6 @@ function ongoingTouchIndexById(idToFind){
 		right: function(){
 			this.ele.style.background = "#fff";
 		}
-
 	});*/
 
 
