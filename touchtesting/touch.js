@@ -1,9 +1,9 @@
-window.onload = function (argument) {
+window.onload = function (argument) {/*
 	var btn = document.getElementById('btn');
 	btn.addEventListener('click',startup, false);
 
 	var el = document.getElementById('canvas');
-	startup();
+	//startup();
 	function startup(){		
 		el.addEventListener('touchstart',handleStart, false);
 		el.addEventListener('touchend', handleEnd, false);
@@ -74,7 +74,7 @@ window.onload = function (argument) {
 			ongoingTouches.splice(i,1);
 		}
 	}
-	
+	*/
 //----------------------------------------------
 function colorForTouch(touch){
 	var id = touch.identifier;
@@ -91,6 +91,7 @@ function ongoingTouchIndexById(idToFind){
 	return -1;
 };
 
+
 //
 (function(){
 	var TouchedObj = function(ele){
@@ -106,7 +107,7 @@ function ongoingTouchIndexById(idToFind){
 	TouchedObj.fn.prototype= {
 		constructor : TouchedObj.fn,
 		init : function(){
-			this.drag();
+			//this.drag();
 		},
 
 		drag : function(){
@@ -223,11 +224,11 @@ function ongoingTouchIndexById(idToFind){
 				var touches = evt.changedTouches;		
 					if(touches.length != 2) return;
 				//for( var i = 0 ; i< touches.length; i++){
-					//point1.idx = touches[0].identifier;
+					point1.idx = touches[0].identifier;
 					point1.x = touches[0].pageX;
 					point1.y = touches[0].pageY;
 
-					//point2.idx = touches[1].identifier;
+					point2.idx = touches[1].identifier;
 					point2.x = touches[1].pageX;
 					point2.y = touches[1].pageY;
 				//}	
@@ -238,11 +239,11 @@ function ongoingTouchIndexById(idToFind){
 
 				var touches = evt.changedTouches;
 					if(touches.length != 2) return;
-					//pointMove1.idx = touches[0].identifier;
+					pointMove1.idx = touches[0].identifier;
 					pointMove1.x = touches[0].pageX;
 					pointMove1.y = touches[0].pageY;
 
-					//pointMove2.idx = touches[1].identifier;
+					pointMove2.idx = touches[1].identifier;
 					pointMove2.x = touches[1].pageX;
 					pointMove2.y = touches[1].pageY;
 
@@ -261,6 +262,7 @@ function ongoingTouchIndexById(idToFind){
 					self.elem.style.width = selfWidth - changePoint2x*changePoint2x/2;
 					self.elem.style.height = selfHeight - changePoint2y*changePoint2y/2; 
 				}
+				var document.getElementById('log').innerText = touches[0].identifier+',' + touches[1].identifier+'\n';
 			};
 
 			function scaleEnd(evt){
@@ -305,8 +307,7 @@ function ongoingTouchIndexById(idToFind){
 
 	var touchEle =  document.getElementById('target');
 	
-	TouchedObj(touchEle).scale();
-	/*.slipDirertion({
+	TouchedObj(touchEle).scale();/*.slipDirertion({
 		ele : document.getElementsByClassName('box')[0],
 		left: function(){
 			this.ele.style.background = "red";
@@ -314,6 +315,7 @@ function ongoingTouchIndexById(idToFind){
 		right: function(){
 			this.ele.style.background = "#fff";
 		}
+
 	});*/
 
 
