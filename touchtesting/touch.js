@@ -262,7 +262,9 @@ function ongoingTouchIndexById(idToFind){
 					self.elem.style.width = selfWidth - changePoint2x*changePoint2x/2 +'px';
 					self.elem.style.height = selfHeight - changePoint2y*changePoint2y/2 +'px'; 
 				}
-				document.getElementById('log').innerText = touches[0].identifier+',' + touches[1].identifier+'\n';
+				document.getElementById('log').innerText =
+					 touches[0].identifier+',' + self.elem.style.width+'\n'+
+					 + touches[1].identifier+'\n' ;
 			};
 
 			function scaleEnd(evt){
