@@ -234,6 +234,7 @@ $(document).ready(function() {
 						return true;
 					};
 				};
+				$('#log').text(parseInt(this.boundingLeft)-this.size+'px' );
 				if( this.positionList[1].x == parseInt(this.boundingLeft)-this.size+'px'||
 					this.positionList[1].x == this.boundingRight ||
 					this.positionList[1].y == parseInt(this.boundingTop)-this.size+'px' ||
