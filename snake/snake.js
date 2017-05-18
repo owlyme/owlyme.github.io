@@ -43,6 +43,7 @@ $(document).ready(function() {
 			this.getSnakeBody();	
 			this.getPosition();
 			this.creatFood();
+			this.direction = this.dirs[4];
 			this.selfExecuting();
 			this.circle();
 		},
