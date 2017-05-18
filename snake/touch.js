@@ -61,11 +61,17 @@
 			self.elem.addEventListener('touchend',slipEnd, false);
 			return direction;
 			function slipStart(evt){
+				if (arg.prevent){
+					evt.preventDefault();
+					};		
 				var touches = evt.changedTouches;
 					startPointX = touches[0].pageX;
 					startPointY = touches[0].pageY;				
 			};
 			function slipEnd(evt){
+				if (arg.prevent){
+					evt.preventDefault();
+					};	
 				var touches = evt.changedTouches;
 					endPointX = touches[0].pageX,
 					endPointY = touches[0].pageY;
