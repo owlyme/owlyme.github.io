@@ -58,23 +58,17 @@
 			var direction = null;
 			var startPointX , startPointY, endPointX, endPointY;
 			self.elem.addEventListener('touchstart',slipStart, false);
-			self.elem.addEventListener('touchmove',function(){
-				if (arg.prevent){evt.preventDefault();};
+			self.elem.addEventListener('touchmove',function(evt){
+				evt.preventDefault();
 			}, false);
 			self.elem.addEventListener('touchend',slipEnd, false);
 			return direction;
-			function slipStart(evt){
-				if (arg.prevent){
-					evt.preventDefault();
-					};		
+			function slipStart(evt){	
 				var touches = evt.changedTouches;
 					startPointX = touches[0].pageX;
 					startPointY = touches[0].pageY;				
 			};
 			function slipEnd(evt){
-				if (arg.prevent){
-					evt.preventDefault();
-					};	
 				var touches = evt.changedTouches;
 					endPointX = touches[0].pageX,
 					endPointY = touches[0].pageY;
