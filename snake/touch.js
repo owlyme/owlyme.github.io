@@ -58,6 +58,9 @@
 			var direction = null;
 			var startPointX , startPointY, endPointX, endPointY;
 			self.elem.addEventListener('touchstart',slipStart, false);
+			self.elem.addEventListener('touchmove',function(){
+				if (arg.prevent){evt.preventDefault();};
+			}, false);
 			self.elem.addEventListener('touchend',slipEnd, false);
 			return direction;
 			function slipStart(evt){

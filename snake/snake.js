@@ -390,6 +390,7 @@ $(document).on('keydown',function(evt){
 })();
 
 TouchedObj(document).slipDirertion({
+	prevent : true,
 	left : function(){snake.direction = snake.dirs[0]},
 	right : function(){snake.direction = snake.dirs[2]},
 	up : function(){snake.direction = snake.dirs[1]},
