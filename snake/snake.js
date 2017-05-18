@@ -35,15 +35,16 @@ $(document).ready(function() {
 		size : 0,
 		highestScore: 0,
 		goOn : undefined,
-
+		direction : null,
 		init : function(){
 			this.score = 0;
 			this.size = parseInt(this.elem.css("width"))/20;
 			this.appendChild();
 			this.getSnakeBody();	
 			this.getPosition();
-			this.circle();
 			this.creatFood();
+			this.selfExecuting();
+			this.circle();	
 		},
 		getSnakeBody: function(){
 			this.snakeBody = $('.snake-body');;
@@ -107,58 +108,39 @@ $(document).ready(function() {
 		},
 		circle : function(){
 			var self = this;
+			//animate("evt", 37);
 			$(document).on("keydown",animate);
-			$('.upbtn').on('click',function(evt){
-				animate(evt, self.dirs[1]);
-			});
-			$('.downbtn').on('click',function(evt){
-				animate(evt, self.dirs[3]);
-			});
-			$('.leftbtn').on('click',function(evt){
-				animate(evt, self.dirs[0]);
-			});
-			$('.rightbtn').on('click',function(evt){
-				animate(evt, self.dirs[2]);
-			});
-
-			function animate(evt, value){
-				var direction = value || evt.which;
-
-				if( self.dirs.indexOf(direction) >=0 ){
-					if( self.dead() ) {
-						return;
-					};
-					autoRun(direction);
-
-					clearInterval(self.goOn);
-					self.goOn = setInterval(function(){
-						if(self.dead()) { 
-							clearInterval(self.goOn--);//stop interval
-							return;	//stop current function
-						};
-						autoRun(direction);
-						self.changeSpeed();						
-					},self.speed);
-				};				
+			function animate(evt){
+				console.log( evt.which );
+				self.direction = evt.which;
 			};
-			function autoRun(arg){
-				switch(arg){
-					case self.dirs[0] ://[37, 38, 39, 40, 32];
-						stepLeft();
-					break;
-					case self.dirs[1] :
-						stepUP();
-					break;
-					case self.dirs[2] :
-						stepRight();
-					break;
-					case self.dirs[3] :
-						stepDown();
-					break;
-					case self.dirs[4] :
-						self.pause();
-						return;
-					break;
+		},
+		selfExecuting : function(){	
+			var self = this;	
+				if( self.dead() ) {
+					return;
+				};
+				self.directionFn(self.direction);
+
+				clearInterval(self.goOn);
+				self.goOn = setInterval(function(){
+					if(self.dead()) { 
+						clearInterval(self.goOn--);//stop interval
+						return;	//stop current function
+					};
+					self.directionFn(self.direction);
+					self.changeSpeed();						
+				},self.speed);
+							
+		},
+		directionFn : function(arg){
+				var self =this;
+				switch(arg){//[37, 38, 39, 40, 32];
+					case self.dirs[0] :	stepLeft();	 break;
+					case self.dirs[1] :	stepUP();	 break;
+					case self.dirs[2] :	stepRight(); break;
+					case self.dirs[3] :	stepDown();	 break;
+					case self.dirs[4] :	self.pause(); return; break;
 				};
 				if(self.dirs.indexOf(arg) >=0 ){
 					self.setPosition();
@@ -166,27 +148,27 @@ $(document).ready(function() {
 					self.getPosition();
 					self.eatFood();
 				};
-			};			
-			function stepLeft(){	
-				self.positionList[0]={x : parseInt(self.positionList[1].x)-self.size+'px',
-								 y : self.positionList[1].y
+
+				function stepLeft(){	
+					self.positionList[0]={x : parseInt( self.positionList[1].x )-self.size+'px',
+									 y : self.positionList[1].y
+					};
 				};
-			};
-			function stepRight(){
-				self.positionList[0]={x : parseInt(self.positionList[1].x)+self.size+'px',
-								 y : self.positionList[1].y
+				function stepRight(){
+					self.positionList[0]={x : parseInt(self.positionList[1].x)+self.size+'px',
+									 y : self.positionList[1].y
+					};
 				};
-			};
-			function stepUP(){
-				self.positionList[0]={x : self.positionList[1].x,
-								 y :  parseInt(self.positionList[1].y)-self.size+'px'
+				function stepUP(){
+					self.positionList[0]={x : self.positionList[1].x,
+									 y :  parseInt(self.positionList[1].y)-self.size+'px'
+					};
 				};
-			};
-			function stepDown(){
-				self.positionList[0]={x : self.positionList[1].x,
-								 y :  parseInt(self.positionList[1].y)+self.size+'px'
+				function stepDown(){
+					self.positionList[0]={x : self.positionList[1].x,
+									 y :  parseInt(self.positionList[1].y)+self.size+'px'
+					};
 				};
-			};
 		},
 		creatFood : function(){
 			this.foodPosition = {
@@ -290,6 +272,7 @@ $(document).ready(function() {
 			})
 		}
 	};
+
 	Snake.fn.prototype.extend = function(obj){
 		var self = this,
 			copy = null;
@@ -363,8 +346,6 @@ $(document).ready(function() {
 	
 })();
 
-
-
 var snake = Snake("#snake");
 var keys = GetKeyCodes('form input');
 
@@ -379,15 +360,41 @@ $('#default').on('click',function(){
 	snake.extend( keys.default() );
 	$('.setting-box-center').css('display','none');
 });
-
 $(document).on('keydown',function(evt){
 	if(evt.which == 32 ){
 		evt.preventDefault();
 	}
 });
 
+(function(){
+	var self = snake;
+	$('.upbtn').on('click',function(evt){
+		self.direction = self.dirs[1] ;
+	});
+	$('.downbtn').on('click',function(evt){
+		self.direction = self.dirs[3];
+	});
+	$('.leftbtn').on('click',function(evt){
+		self.direction = self.dirs[0];
+	});
+	$('.rightbtn').on('click',function(evt){
+		self.direction = self.dirs[2];
+	});
+	$('.pausebtn').on('click',function(evt){
+		$('.pausebtn').css('opacity',0.5);
+		setTimeout(function(){
+			$('.pausebtn').animate({opacity: 1},3000);
+		},1000);
+		self.direction = self.dirs[4];
+	});	
+})();
 
-
+TouchedObj(document).slipDirertion({
+	left : function(){snake.direction = snake.dirs[0]},
+	right : function(){snake.direction = snake.dirs[2]},
+	up : function(){snake.direction = snake.dirs[1]},
+	down : function(){snake.direction = snake.dirs[3]},
+});
 
 
 

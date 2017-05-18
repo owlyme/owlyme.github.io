@@ -1,5 +1,5 @@
-window.onload = function (argument) {
-	(function(){
+
+	;(function(){
 	var TouchedObj = function(ele){
 		return new TouchedObj.fn(ele);
 	};
@@ -55,9 +55,11 @@ window.onload = function (argument) {
 		},
 		slipDirertion : function(arg){
 			var self = this;
+			var direction = null;
 			var startPointX , startPointY, endPointX, endPointY;
 			self.elem.addEventListener('touchstart',slipStart, false);
 			self.elem.addEventListener('touchend',slipEnd, false);
+			return direction;
 			function slipStart(evt){
 				var touches = evt.changedTouches;
 					startPointX = touches[0].pageX;
@@ -74,24 +76,29 @@ window.onload = function (argument) {
 					if( slipY > 0){
 						if (arg.down){
 							arg.down();
+							direction = "down";
 						}					
 					}else if( slipY < 0){
 						if (arg.up){
 							arg.up();
+							direction = "up";
 						}
 					}
 				}else if( slipY*slipY < slipX*slipX ){
 					if( slipX > 0){
 						if (arg.right){
 							arg.right();
+							direction = "right";
 						}
 					}else if( slipX < 0){
 						if (arg.left){
 							arg.left();
+							direction = "left";
 						}
 					}
 				}
 			};
+
 		},
 		scale : function(){
 			var self = this;
@@ -208,21 +215,9 @@ window.onload = function (argument) {
 
 	var touchEle =  document.getElementById('target');
 	
-	TouchedObj(touchEle).scale();/*.slipDirertion({
-		ele : document.getElementsByClassName('box')[0],
-		left: function(){
-			this.ele.style.background = "red";
-		},
-		right: function(){
-			this.ele.style.background = "#fff";
-		}
-
-	});*/
-
-
+	window.TouchedObj = TouchedObj;
+	
 })();
 
 
 
-
-};
