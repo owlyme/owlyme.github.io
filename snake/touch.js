@@ -60,7 +60,7 @@
 			self.elem.addEventListener('touchstart',slipStart, false);
 			self.elem.addEventListener('touchmove',function(evt){
 				evt.preventDefault();
-			}, false);
+			}, true);
 			self.elem.addEventListener('touchend',slipEnd, false);
 			return direction;
 			function slipStart(evt){	

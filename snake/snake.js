@@ -44,7 +44,7 @@ $(document).ready(function() {
 			this.getPosition();
 			this.creatFood();
 			this.selfExecuting();
-			this.circle();	
+			this.circle();
 		},
 		getSnakeBody: function(){
 			this.snakeBody = $('.snake-body');;
@@ -106,8 +106,9 @@ $(document).ready(function() {
 			}));
 			this.getSnakeBody();
 		},
-		circle : function(){
+		circle : function(fn){
 			var self = this;
+			if(fn) fn();
 			//animate("evt", 37);
 			$(document).on("keydown",animate);
 			function animate(evt){
@@ -261,10 +262,7 @@ $(document).ready(function() {
 				self.positionList = [];
 				self.elem.html("");
 				$(document).off('keydown');
-				$('.upbtn').off('click');
-				$('.downbtn').off('click');
-				$('.leftbtn').off('click');
-				$('.rightbtn').off('click');
+				
 				self.init();
 			});
 			$('.game-over button').eq(1).on('click',function(){
@@ -389,7 +387,7 @@ $(document).on('keydown',function(evt){
 	});	
 })();
 
-TouchedObj(document).slipDirertion({
+TouchedObj(document.getElementsByTagName('body')[0]).slipDirertion({
 	left : function(){snake.direction = snake.dirs[0]},
 	right : function(){snake.direction = snake.dirs[2]},
 	up : function(){snake.direction = snake.dirs[1]},
