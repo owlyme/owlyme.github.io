@@ -404,7 +404,7 @@
 			this.month = date.getMonth()+1;
 			this.day = date.getDate();
 		},
-		createYears : function(){
+		createYears : function(fn){
 			var self = this,				
 				options = '';
 			self.yearEle.innerHTML = options;
@@ -415,9 +415,10 @@
 			selectedFn(self.yearEle, self.year);
 			self.yearEle.addEventListener('change',function(evt){
 				self.year = self.yearEle.value-0;
+				if(fn) fn();
 			});
 		},
-		createMonth : function(){
+		createMonth : function(fn){
 			var self = this,
 				options = '';
 			self.monthEle.innerHTML = options;
@@ -428,6 +429,7 @@
 			selectedFn(self.monthEle, self.month);
 			self.monthEle.addEventListener('change',function(evt){
 				self.month = self.monthEle.value-0;
+				if(fn) fn();
 			});
 
 			self.dayEle.addEventListener('mousedown',function(evt){
@@ -439,7 +441,7 @@
 				self.dayEle.innerHTML = options;
 			},false);
 		},
-		createDays : function(){
+		createDays : function(fn){
 			var self = this,
 				_maxDate = maxDate(self.year,self.month),
 				options = '';
@@ -453,6 +455,7 @@
 						
 			days.addEventListener('change',function(evt){
 				self.day = days.value-0;
+				if(fn) fn();
 			});
 		},
 		prevMonthFn : function(){
@@ -520,25 +523,40 @@
 	var form = document.getElementById('selection'),
 		prevMonth = document.getElementById('prev-month-btn'),
 		nextMonth = document.getElementById('next-month-btn');
-	var createDate = CreatDate('years', 'month', 'days');
-
-	var _getWeekday = getWeekday(createDate.year, createDate.month, 1);
+	var createDate = CreatDate('years', 'month', 'days'),
 		createCalendar = CreateCalendar('display-date');
+
+	var repsondeActive = function(){
+		_getWeekday = getWeekday(createDate.year, createDate.month, 1);		
 		createCalendar.extend(_getWeekday).creatDays().setCSSstyle();
 		pointSelectedDate();
+	};
 
-	prevMonth.addEventListener('click',function(){
-		createDate.prevMonthFn()
-	},false);
-	nextMonth.addEventListener('click',function(){
-		createDate.nextMonthFn();
-	},false);
-	form.addEventListener('click',function(evt){
+	repsondeActive();
+
+	createDate.createYears(function(){
+		repsondeActive();
+	});
+	createDate.createMonth(function(){
+		repsondeActive();
+	});
+	createDate.createDays(function(){
+		repsondeActive();
+	});
+
+	prevMonth.addEventListener('click',function(evt){
 		evt.preventDefault();
-		_getWeekday = getWeekday(createDate.year, createDate.month, 1);
-		createCalendar.extend(_getWeekday).creatDays().setCSSstyle();		
-		pointSelectedDate();
+		createDate.prevMonthFn();
+		setTimeout(repsondeActive,0);
+		//repsondeActive();
 	},false);
+	nextMonth.addEventListener('click',function(evt){
+		evt.preventDefault();
+		createDate.nextMonthFn();
+		setTimeout(repsondeActive,0);
+		//repsondeActive();
+	},false);
+
 
 	function pointSelectedDate(){
 		for(var i =41; i>=0 ; i--){
