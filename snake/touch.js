@@ -187,7 +187,6 @@
 				self.elem.style.height = selfHeight
 			};
 		}
-
 	};
 
 	function getStyle(element, attr, boolen) {

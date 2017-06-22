@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bootstrap test</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="index.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>	
+<script src="index.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<div class="chatroom">
+		<header class="clearfix">
+			<div class="logo">
+				<h2>Welcome, <span class="account">vistor</span></h2>
+			</div>
+			<div class="right-side">
+				<div class="sign-in-up" >
+					<button type="button" class="btn btn-default" id="sign-in">sign in</button>
+					<button type="button" class="btn btn-default" id="sign-up">sign up</button>
+				</div>	
+				<div class="new-or-out" style="display: none;">
+					<button type="button" class="btn btn-default" id="creat-new-chatroom">new chatroom</button>
+					<button type="button" class="btn btn-default" id="sign-out">sign out</button>
+				</div>	
+				<div class="login" style="display: none;">
+					<form class="form-horizontal">
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label" >账 户</label>
+					    <div class="col-sm-9">
+					      <input type="email" class="form-control" id="inputEmail3" placeholder="Account" name="account">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-3 control-label" >密 码</label>
+					    <div class="col-sm-9">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					    	<button type="button" class="btn btn-default" name="submit-btn">确认</button>
+							<button type="button" class="btn btn-default" name="cancle-btn">取消</button>
+					    </div>
+					  </div>
+					</form>
+				</div>
+				<div class="logup" style="display: none;">
+					<form class="form-horizontal">
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label" >账 户</label>
+					    <div class="col-sm-9">
+					      <input type="email" class="form-control" id="inputEmail3" placeholder="Account" name="new-account">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label" >密 码</label>
+					    <div class="col-sm-9">
+					      <input type="email" class="form-control" id="inputEmail3" placeholder="Account" name="new-password">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-3 control-label" >重输密码</label>
+					    <div class="col-sm-9">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="rePassword"  name="new-repassword">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					    	<button type="button" class="btn btn-default" name="submit-btn1">确认</button>
+							<button type="button" class="btn btn-default" name="cancle-btn1">取消</button>
+					    </div>
+					  </div>
+					</form>
+				</div>
+			</div>
+		</header>
+		<section>
+			<div class="chat-list" ></div>
+			<div class="chat-box" style="display: none;">
+				<h3 class="chatting-title"><input type="text" name="title" placeholder="What are want to talk about?"> <button>submmit</button><span class="close">X</span></h3>
+				<div class="chatting-content">
+				</div>
+				<form >
+					<textarea class="form-control" rows="3" type="text" name="msg" placeholder="input here..."></textarea>
+					<div class="msg-btn">
+						<button type="button" class="btn btn-primary" name="submit-btn2">send</button>
+						<button type="button" class="btn btn-default" name="cancle-btn2">cancel</button>
+					</div>	
+				</form>
+			</div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

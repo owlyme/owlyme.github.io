@@ -133,7 +133,6 @@ $(document).ready(function() {
 					self.directionFn(self.direction);
 					self.changeSpeed();						
 				},self.speed);
-							
 		},
 		directionFn : function(arg){
 				var self =this;
@@ -338,8 +337,7 @@ $(document).ready(function() {
 				speed : 500
 			};
 			return this.defaultKeyCodes;
-		}
-	
+		}	
 	};
 	window.GetKeyCodes = GetKeyCodes;
 	
