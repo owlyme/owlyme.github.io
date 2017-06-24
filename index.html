@@ -7,9 +7,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="../favicon.ico">
 
-    <title>owlyme game center</title>
+    <title>owlyme's profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -21,159 +21,170 @@
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
 
-</head>
   <body>
-    <div class="navbar-wrapper">
-      <div class="container">
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">OWLYME GAME</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="./profile/index.html">About</a></li>
-                <li><a href="./contact/index.html">Contact</a></li>
-              </ul>
+  	<header id="home" class="home">
+     <div class="left-haft">
+       <section class="_show">          
+          <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+       </section>
+       <section class="_hide">
+         <h5 class="drop-down">OWLYME</h5>         
+         <ul class="nav nav-pills nav-stacked">
+         <h1>Web Designer</h1>
+          <li><a href="#works">WORKS</a></li>
+          <li><a href="#about-me">ABOUT ME</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+         </ul>
+       </section>
+     </div> 
+     <div class="right-haft roatre3D">
+       <section class="_show">          
+          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+       </section>
+       <section class="_hide">
+         <p >My name is <ins>xuyuan</ins>. I’m a web designer with an eye for detail and a drive for quality.</p>
+          <button class="btn btn-default" id="view-works"><a href="#works">view my works</a></button>
+       </section>
+     </div> 
+    </header>
+    <div class="page">
+      <div class="side-bar">
+        <div class="logo">
+          <h2>OWLYME</h2>
+        </div>
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#works">WORKS</a></li>
+          <li><a href="#about-me">ABOUT ME</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>      
+      <div class="content">
+        <section class="works" id="works">
+          <div class="work work-1">
+            <h2><a href="./hobbies/index.html">Hobbies</a></h2>
+            <div>
+              
             </div>
           </div>
-        </nav>
-
+          <div class="work work-2">
+            <h2><a href="./game-center/index.html">Game center</a></h2>
+            <div>
+              
+            </div>
+          </div>
+          <div class="work work-3">
+            <h2><a href="./blog/index.html"> My Bolg</a></h2>
+            <div>
+              
+            </div>
+          </div>
+          
+        </section>
+        <hr/>
+        <section id="about-me" class="about-me">           
+          <div class="col-md-8">
+            <hr/>
+            <h3>徐远</h3>
+            <h5>web、JS、video game、running</h5>
+            <h4></h4>
+          </div>
+          <div class="col-md-4">
+            <img class="img-responsive img-rounded" src="./profile/images/me.jpg">
+          </div>                  
+          <hr>             
+          <h3>工作经验</h3>
+          <p></p>
+          <hr>
+          <h3>教育情况</h3>
+          <p>2008-2011就读于安徽涉外经济学院</p>
+          <p></p>
+          <hr>
+          <h3>技能</h3>
+          <p>                     
+          </p>
+          <ul>
+            <li>熟悉JS,jQuery ,AJAX;能够熟练手写原生js代码,能够使用原生js实现多种交互效果,熟悉面向对象开发.</li>
+            <li>精通HTML,CSS,熟悉HTML5,CSS3,熟练使用canvas技术;</li>
+            <li>熟悉jQeuryUI,jQuery-Mobile,bootstrap,可以参考手册快速上手,了解react.js;node.js;http协议等;</li>
+            <li>精通PS,对用户体验,交互,视觉有一定见解.</li>
+          </ul>                   
+        </section>
+        <hr/>
+        <section id="contact" class="contact">
+          <div class="container contact" >
+            <h3>Contact information：</h3>
+            <table class="table table-hover">
+              <tr>
+                <td class="col-md-2 col-sm-5"><h4>Email</h4> </td>
+                <td class="col-md-10 col-sm-7"><h4>xy@owlyme.com</h4> </td>
+              </tr>
+               <tr>
+                <td><h4>Mobile-phone</h4></td>
+                <td><h4> 131-5652-1718</h4></td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <hr/>
       </div>
     </div>
-   
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="images/ios.png" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1></h1>
-              <p></p>
-              <p><a class="btn btn-md btn-default" href="./ios/index.html" role="button">ios desktop</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="second-slide" src="images/snake.png" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1></h1>
-              <p></p>
-              <p><a class="btn btn-md btn-default" href="./snake/index.html" role="button">Snake</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="images/1024.png" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1></h1>
-              <p></p>
-              <p><a class="btn btn-md btn-default" href="./1024/index.html" role="button">1024</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="forth-slide" src="images/favicon.png" alt="forth slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1></h1>
-              <p></p>
-              <p><a class="btn btn-md btn-default" href="#" role="button">my profile</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing" id="marketing">
-      <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">IOS desktop emulator </h2>
-          <p class="lead">Do something like Iphone's desktop by JS.</p>
-        </div>
-        <div class="col-md-5">
-          <a href="ios/index.html"><img class="featurette-image img-responsive center-block" src="images/ios_.png" alt="Generic placeholder image"></a>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Snake</h2>
-          <p class="lead">Click it and have a good time!</p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <a href="snake/index.html"><img class="featurette-image img-responsive center-block" src="images/snake_.png" alt="Generic placeholder image"></a>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">1024</h2>
-          <p class="lead">1024 is not the biggest number, try it!</p>
-        </div>
-        <div class="col-md-5">
-          <a href="1024/index.html"><img class="featurette-image img-responsive center-block" src="images/1204_.png" alt="Generic placeholder image"></a>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-    </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
   </body>
-</html>
+<script type="text/javascript">
+  $(".left-haft").on("mouseenter",function (evt) {
+     $(".left-haft ._hide").fadeIn();
+     $(".left-haft ._show").hide();
+  });
+  $(".right-haft").on("mouseenter",function (evt) {
+     $(".right-haft ._hide").fadeIn();
+     $(".right-haft ._show").hide();
+  });
+  $(".left-haft").on("mouseleave",function (evt) {
+     $(".left-haft ._hide").hide();
+     $(".left-haft ._show").show();
+  });
+  $(".right-haft").on("mouseleave",function (evt) {
+     $(".right-haft ._hide").hide();
+     $(".right-haft ._show").show();
+  });
+  (function(){
+    var left=[],
+        top=[],
+        works = $(".work");
+    for(var i =0; i<works.length; i++){
+      left.push($(works[i]).css("left"));
+      top.push($(works[i]).css("top"));
+    }
+     $(".work").hover(function(evt){
+       $(this).css("left",(parseInt(left[$(this).index()])*.8)+"px");
+       $(this).css("top",(parseInt(top[$(this).index()])/3)+"px");
+      },function(evt){
+        $(this).css("left",left[$(this).index()]);
+        $(this).css("top",top[$(this).index()]);
+      });
+  })();
+ 
 
-  </body>
+  (function(){
+    var sideBarLis = $(".side-bar ul li");
+     $("section._hide ul li").on("click",function(evt){
+      var index = $(this).index();
+      sideBarLis.removeClass("select");
+      sideBarLis.eq(index).addClass("select");
+    })
+    sideBarLis.on("click",function(evt){
+      sideBarLis.removeClass("select");
+      $(this).addClass("select");
+    });
+  })()
+ 
+  var doc= $(document);
+  doc.scroll(function(){
+
+  //$(".side-bar").css("padding-top",doc.scrollTop()-parseInt($(".home").css("height"))+"px");
+  })
+ 
+</script>
 </html>
