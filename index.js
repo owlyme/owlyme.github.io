@@ -3,19 +3,18 @@
         backHome = $(".back-to-home"),
         blades = $(".blade");
 
-    var classNames= "", curEle, _index ;
-    var value = 1,
+    var curEle,
+        _index ,
+        done = 1,
         left=[],
         top=[];
+
     for(var i =0; i<blades.length; i++){
         left.push($(blades[i]).css("left"));
         top.push($(blades[i]).css("top"));
     }
 
     $(window).resize(function() {
-        _body= $("body");
-        backHome = $(".back-to-home");
-        blades = $(".blade");
         left=[];
         top=[];
         for(var i =0; i<blades.length; i++){
@@ -23,30 +22,30 @@
             top.push($(blades[i]).css("top"));
         }
     });
-        blades.hover(function(evt){
-            if( $(this).css("transform")=== "matrix(1, 0, 0, 1, 0, 0)" &&
-                parseInt(_body.css("width")) >= 720   )return;
-            if( parseInt(_body.css("width")) <= 720 && $(this).css("top")==="0px" ){return};
-            _index = $(this).index();
-            value = _index%2 ? -1 : 1;
-            $(this).css("left",(parseInt(left[_index])*.8)+"px");
-            $(this).css("top",(parseInt(top[_index])*0.9)+"px");
+
+    blades.hover(function(evt){
+        if( !done ) return;
+         _index = $(this).index();
+         value = _index%2 ? -1 : 1;
+         $(this).css("left",(parseInt(left[_index])*.8*value)+"px");
+         $(this).css("top",(parseInt(top[_index])*0.9)+"px");
         },function(evt){
-            if( $(this).css("transform")=== "matrix(1, 0, 0, 1, 0, 0)" &&
-                parseInt(_body.css("width")) >= 720 )return;
-            if( parseInt(_body.css("width")) <= 720 && $(this).css("top")==="0px" ){return};
+        if( !done ) return;
             $(this).css("left",left[_index]);
             $(this).css("top",top[_index]);
-        });
+    });
 
     blades.on("click",function(evt){
-        backHome.fadeIn("slow");
-        classNames = $(this).prop("className");
+        done = 0;
         curEle  = $(this);
+        backHome.fadeIn("slow");
         $(this).addClass("rotate-back").css("z-index",1);
         blades.not(curEle).addClass("rotate-down");
-        curEle.css("left",0);
-        curEle.css("top",0);
+        setTimeout(function () {
+            done = 0;
+            curEle.css("left","0px");
+            curEle.css("top","0px");
+        },0);
         setTimeout(function () {
             if(_index === 0 ){};
             if(_index === 1 )window.location.assign("./game-center/index.html");

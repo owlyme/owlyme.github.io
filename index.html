@@ -21,7 +21,7 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 </head>
 <body>
 
@@ -34,60 +34,73 @@
     </header>
     <section class="content">
         <div class="blade blade1 rotate-clockwise">
-            <h1>Hobbies</h1>
+            <div id="hobbies" style="position: absolute; width: 96%;">
+                <h1>Hobbies</h1>
+            </div>
         </div>
         <div class="blade blade2 rotate-anticlockwise">
             <h1>Game center</h1>
         </div>
         <div class="blade blade3 rotate-clockwise">
-            <h1>Contact information</h1>
-            <section id="contact" class="contact">
-                <div class="container contact" >
-                    <table class="table table-hover">
-                        <tr>
-                            <td class="col-md-2 col-sm-5"><h4>Email</h4> </td>
-                            <td class="col-md-10 col-sm-7"><h4>xy@owlyme.com</h4> </td>
-                        </tr>
-                        <tr>
-                            <td><h4>Mobile-phone</h4></td>
-                            <td><h4> 131-5652-1718</h4></td>
-                        </tr>
-                    </table>
-                </div>
-            </section>
-        </div>
-        <div class="blade blade4 rotate-anticlockwise">
-            <h1>About Me</h1>
-                <section id="about-me" class="about-me">
-                    <div class="container">
-                    <div class="col-md-8 ">
-                        <hr/>
-                        <h3>徐远</h3>
-                        <h5>web、JS、video game、running</h5>
-                        <h4></h4>
-                    </div>
-                    <div class="col-md-4">
-                        <img class="img-responsive img-rounded" src="./profile/images/me.jpg">
-                    </div>
-                    <hr>
-                    <h3>工作经验</h3>
-                    <p></p>
-                    <hr>
-                    <h3>教育情况</h3>
-                    <p>2008-2011就读于安徽涉外经济学院</p>
-                    <hr>
-                    <h3>技能</h3>
-                    <ul>
-                        <li>熟悉JS,jQuery ,AJAX;能够熟练手写原生js代码,能够使用原生js实现多种交互效果,熟悉面向对象开发.</li>
-                        <li>精通HTML,CSS,熟悉HTML5,CSS3,熟练使用canvas技术;</li>
-                        <li>熟悉jQeuryUI,jQuery-Mobile,bootstrap,可以参考手册快速上手,了解react.js;node.js;http协议等;</li>
-                        <li>精通PS,对用户体验,交互,视觉有一定见解.</li>
-                    </ul>
+            <div id="hobbies" style="position: absolute;">
+                <h1>Contact information</h1>
+                <section id="contact" class="contact">
+                    <div class="container contact" >
+                        <table class="table table-hover">
+                            <tr>
+                                <td class="col-md-2 col-sm-5"><h4>Email</h4> </td>
+                                <td class="col-md-10 col-sm-7"><h4>xy@owlyme.com</h4> </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Mobile-phone</h4></td>
+                                <td><h4> 131-5652-1718</h4></td>
+                            </tr>
+                        </table>
                     </div>
                 </section>
+            </div>
+        </div>
+        <div id="blade-about" class="blade blade4 rotate-anticlockwise">
+            <div id="about-me" style="position: absolute;">
+                <h1>About Me</h1>
+                <section  class="about-me">
+                    <div class="container">
+                        <div class="col-md-8 ">
+                            <hr/>
+                            <h3>徐远</h3>
+                            <h5>web、JS、video game、running</h5>
+                            <h4></h4>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-responsive img-rounded" src="./profile/images/me.jpg">
+                        </div>
+                        <hr>
+                        <h3>工作经验</h3>
+                        <p></p>
+                        <hr>
+                        <h3>教育情况</h3>
+                        <p>2008-2011就读于安徽涉外经济学院</p>
+                        <hr>
+                        <h3>技能</h3>
+                        <ul>
+                            <li>熟悉JS,jQuery ,AJAX;能够熟练手写原生js代码,能够使用原生js实现多种交互效果,熟悉面向对象开发.</li>
+                            <li>精通HTML,CSS,熟悉HTML5,CSS3,熟练使用canvas技术;</li>
+                            <li>熟悉jQeuryUI,jQuery-Mobile,bootstrap,可以参考手册快速上手,了解react.js;node.js;http协议等;</li>
+                            <li>精通PS,对用户体验,交互,视觉有一定见解.</li>
+                        </ul>
+                        <ul>
+                            <li>熟悉JS,jQuery ,AJAX;能够熟练手写原生js代码,能够使用原生js实现多种交互效果,熟悉面向对象开发.</li>
+                            <li>精通HTML,CSS,熟悉HTML5,CSS3,熟练使用canvas技术;</li>
+                            <li>熟悉jQeuryUI,jQuery-Mobile,bootstrap,可以参考手册快速上手,了解react.js;node.js;http协议等;</li>
+                            <li>精通PS,对用户体验,交互,视觉有一定见解.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>           
         </div>
     </section>
 </div>
 </body>
 <script src="./index.js"></script>
+<script src="./scroll.js"></script>
 </html>
