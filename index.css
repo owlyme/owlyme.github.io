@@ -204,26 +204,26 @@
         overflow: hidden;
         box-shadow: 0 0 5px #444;
         font-size: 0.6em;
-        transition: top 0.5s, left 0.5s, transform 0.3s ,width 0.5s;
+        transition: top 0.3s, left 0.3s, transform 0.3s ,width 0.3s;
     }
     .blade1{
-        top: 200px;
+        top: 300px;
         left: 0;
         background: #FCA636;
     }
     .blade2{
-        top: 250px;
+        top: 350px;
         right: 0;
         background: #ECEAE1;
         text-align: right;
     }
     .blade3{
-        top: 300px;
+        top: 400px;
         left: 0;
         background: #33BB7B;
     }
     .blade4{
-        top: 350px;
+        top: 450px;
         right: 0;
         background: #4CB5FA;
         text-align: right;
@@ -267,6 +267,8 @@
         width: 100%;
         text-align: left;
         padding: 0 20px;
+        overflow: scroll;
+        overflow-x: hidden;
         -webkit-transform: rotate(0);
         -moz-transform: rotate(0);
         -ms-transform: rotate(0);
