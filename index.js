@@ -14,12 +14,23 @@
         top.push($(blades[i]).css("top"));
     }
 
-    $(window).resize(function() {
+    $(window).resize(function(evt) {
         left=[];
         top=[];
         for(var i =0; i<blades.length; i++){
-            left.push($(blades[i]).css("left"));
-            top.push($(blades[i]).css("top"));
+            left.push( $(blades[i]).css("left") );
+            top.push( $(blades[i]).css("top") );
+        }
+        if( parseInt( _body.css("width") ) >= 720 ){
+            top = ["300px","300px","400px","400px"];
+        }else {
+            top = ["300px","350px","400px","450px"];
+        };
+        for(var i =0; i<blades.length; i++){
+            if( parseInt($(blades[i]).css("top")) === 0 ){
+                continue;
+            }
+            $(blades[i]).css("top",top[i]);
         }
     });
 
@@ -42,13 +53,10 @@
         backHome.fadeIn("slow");
         $(this).addClass("rotate-back").css("z-index",1);
         blades.not(curEle).addClass("rotate-down");
+        curEle.css("left","0px");
+        curEle.css("top","0px");
         setTimeout(function () {
-            done = 0;
-            curEle.css("left","0px");
-            curEle.css("top","0px");
-        },0);
-        setTimeout(function () {
-            if(_index === 0 ){};
+            if(_index === 0 )window.location.assign("./blog/index.html");
             if(_index === 1 )window.location.assign("./game-center/index.html");
         },500);
     });
