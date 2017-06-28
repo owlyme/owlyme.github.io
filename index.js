@@ -24,8 +24,9 @@
     });
 
     blades.hover(function(evt){
+        _index = $(this).index();
         if( !done ) return;
-         _index = $(this).index();
+         console.log("hover: "+_index);
          value = _index%2 ? -1 : 1;
          $(this).css("left",(parseInt(left[_index])*.8*value)+"px");
          $(this).css("top",(parseInt(top[_index])*0.9)+"px");
@@ -55,6 +56,7 @@
         _body.css("overflow","hidden");
         backHome.css("display","none");
         blades.removeClass("rotate-back rotate-down").css("z-index",0);
+        console.log("click: "+_index);
         curEle.css("left",left[_index]);
         curEle.css("top",top[_index]);
     });
