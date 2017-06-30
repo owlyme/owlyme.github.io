@@ -386,9 +386,8 @@
 /*font style*/
 @font-face
 {
-    font-family: myFirstFont;
-    src: url('./font/xingkai.ttf'),
-    url('./font/xingkai2.ttf'); /* IE9+ */
+   font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+   
 }
 .font-style{
     font-family:myFirstFont;
