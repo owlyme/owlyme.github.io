@@ -1,27 +1,19 @@
+(function(){
+    var scroll = function(ele){
+        //obj instanceof jQuery
+        ele =  $(ele);
+        ele.on("mouseover",function(evt){
+            var wheel = evt.wheelDelta;
+            
+        });
+        ele.on("mouseout",function(evt){
+            evt.preventDefault();
 
-function scroll (ele) {
-    var inside = ele;
-    // using the event helper
-    var _top = parseInt( inside.css("top") ),
-        windowHeight = parseInt( $("body").css("height") ),
-        insideHeight = parseInt( inside.css("height") );
-    inside.mousewheel(function(event, delta, deltaX, deltaY) {
-        pageUp();
-        function pageUp(){
-            if(deltaY > 0){
-                _top += 20;
-            }else{
-                _top -= 20;
-            }
-            if( _top >= 0 ){
-                _top = 0;
-            }else if(_top <= windowHeight - insideHeight ) {
-                _top= windowHeight - insideHeight;
-            }
-            inside.css("top",_top +"px");
-        }
-    });
-}
+        });
+         $(window).scroll(function(){
+         	console.log('wheel');
+         })
 
-scroll( $("#about-me"));
-
+    };
+    scroll(document);
+})();

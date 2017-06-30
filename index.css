@@ -335,7 +335,7 @@
     .back-to-home:hover{ opacity: 1;}
 }
 
-
+/*animate*/
 @-webkit-keyframes windmill {
     0% {
         -webkit-transform: rotate(0deg);
@@ -382,5 +382,15 @@
     -webkit-animation-fill-mode: backwards;
     -moz-animation-fill-mode: backwards;
     animation-fill-mode: backwards;
+}
+/*font style*/
+@font-face
+{
+    font-family: myFirstFont;
+    src: url('./font/xingkai.ttf'),
+    url('./font/xingkai2.ttf'); /* IE9+ */
+}
+.font-style{
+    font-family:myFirstFont;
 }
 
