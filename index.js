@@ -37,7 +37,6 @@
     blades.hover(function(evt){
         _index = $(this).index();
         if( !done ) return;
-         console.log("hover: "+_index);
          value = _index%2 ? -1 : 1;
          $(this).css("left",(parseInt(left[_index])*.8*value)+"px");
          $(this).css("top",(parseInt(top[_index])*0.9)+"px");
