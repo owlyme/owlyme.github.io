@@ -49,7 +49,7 @@
 
       <div class="blog-header">
         <h1 class="blog-title">Owlyme Blog</h1>
-        <p class="lead blog-description">学无止境！</p>
+        <p class="lead blog-description">请在chrome浏览器的控制台中，运行查看以下代码，谢谢合作。</p>
       </div>
 
       <div class="row">
@@ -57,16 +57,166 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
-            <h2 class="blog-post-title"></h2>
-            <p class="blog-post-meta"></p>
+            <h2 class="blog-post-title">Prototype</h2>
+            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
+            <p>js中，一切变量皆为对象！</p>
+            <h3>构造函数(constructor)</h3>
+            <hr>
+            <p>在js中任何类型对象都有construtor属性，这是js语言设计者设定的;该属性返回一个 指向创建了 该对象原型的 函数引用。需要注意的是，该属性的值是那个函数本身，而不是一个包含函数名称的字符串。</p>
+            <h3>对于js的原生对象</h3>
+            <pre>
+	// Boolean/布尔(对象)
+	Boolean.constructor     //  function Boolean() { [native code] }
+	// Number/数字(对象)
+	Number.constructor      //  function Number() { [native code] }
+	// String/字符(对象)
+	String.constructor      //  function String() { [native code] }
+	// Array/数组(对象)
+	Array.constructor       //  function Array() { [native code] }
+	// Function/函数(对象)
+	Function.constructor    //  function Function() { [native code] }
+	// Object/对象
+	Object.constructor      //  function Function() { [native code] }
+            </pre>
 
+            <p>这里我们会发现Function与Object的constructor属性结果是一样的，那么他们的构造函数是否是同一个了？？？？</p>
+            <pre>
+	Function.constructor  === Object.constructor    // true!!!(意外不）
+            </pre>
+            <p>
+              现在，我们得到一个结果，在JS中，<code>Function</code> 与 <code>Object</code> 是由同一个 原型 创建的；现在我们将这个问题放一放，不去进一步理解，后面有说。
+            </p>
+            <h3>自定义对象/实例</h3>
+            <pre>
+	// 布尔(对象)
+	var bool = true;
+		bool.constructor;     //  function Boolean() { [native code] }
+	// 数字(对象)
+	var num = 0;
+		num.constructor;      //  function Number() { [native code] }
+	// 字符(对象)
+	var str = "str";
+		str.constructor;      //  function String() { [native code] }
+	// 数组(对象)
+	var arr = [];
+		arr.constructor;      //  function Array() { [native code] }
+	// 函数(对象)
+	var fn = function(){};
+		fn.constructor;      //  function Function() { [native code] }
+	// 对象
+	var obj = {};
+		obj.constructor;    //  function Object() { [native code] }
+            </pre>
+            <p>同一类型的constructor是一样的，</p>
+            <h3>对象原型(prototype)</h3>
+            <blockquote>
+              “Javascript 只有一种结构：对象。每个对象都有一个私有属性(称为是Prototype)。”( 摘自MDN );
+            </blockquote>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <h4>js的原生对象</h4>
+            <p>对象都有对应的原型对象(Prototype Object)，通过prototype方式来指向 "原型对象";</p>
+            <pre>
+	Boolean.prototype
+	//  Boolean {[[PrimitiveValue]]: false, constructor: function, toString: function, valueOf: function}
+
+	Number.prototype
+	//  Number {constructor: function, toExponential: function, toFixed: function, toPrecision: function, toString: function…}
+
+	String.prototype
+	//  String {length: 0, constructor: function, charAt: function, charCodeAt: function, endsWith: function…}
+
+	Array.prototype
+	// [constructor: function, toString: function, toLocaleString: function, join: function, pop: function…]
+
+	Function.prototype
+	//  function () { [native code] }
+
+	Object.prototype
+	//  Object {__defineGetter__: function, __defineSetter__: function, hasOwnProperty: function, __lookupGetter__: function, __lookupSetter__: function…}
+            </pre>
+
+            <h3>实例</h3>
+            <p>实例(object of a function)，没有prototype属性；</p>
+            <pre>
+	var a = 1;
+		a.prototype;    // undefined;
+	var arr = new Array();
+		arr.prototype;  // undefined;
+        var obj = {};
+                obj.prototype;  // undefined;
+	//其中Function是个例外：
+	var fn = function(){};
+		fn.prototype   // function Object {constructor: function};
+	var fn1 = new Function();
+		fn1.prototype 	// function Object {constructor: function};
+            </pre>
+            <h2>继承</h2>
+            <blockquote>
+              JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依此层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。( 摘自MDN )
+            </blockquote>
+            <h3>原型链</h3>
+            <blockquote>
+              "Javascript 只有一种结构：对象。每个对象都有一个私有属性(称为是Prototype), 它持有一个连接到另一个称为其 prototype 对象的链接。"`( 摘自MDN );
+            </blockquote>
+            <p>上面提到对象有<code>constructor </code> 属性<code> (typeof obj.constuctor == “function”)</code>; <code>obj.constuctor</code>有原型对象<code>prototype</code> ,属性名 是 prototype;</p>
+            b
           </div><!-- /.blog-post -->
+          <pre>
+	var obj = {};
+	typeof obj.constructor;                                         // "function"
+        typeof obj.constructor.prototype;                               // "object"
 
+	!!obj.constructor.prototype;                                    // true;
+	!!obj.constructor.prototype.constructor;                        // true;
+        !!obj.constructor.prototype.constructor.prototype;              // true;
+        !!obj.constructor.prototype.constructor.prototype.constructor;  // true;
+	//当试图访问一个对象的属性时，搜寻该对象的原型，以及该对象的原型的原型......
+          </pre>
+          <h2>对象原型拓展</h2>
+          <p>js中，一切变量皆为对象！</p>
+          <pre>
+        Function.constructor  === Object.constructor                          // true!!!
+        Array.constructor.prototype.constructor  === Object.constructor       // true!!!
+        Number.constructor.prototype.constructor  === Object.constructor      // true!!!
+        String.constructor.prototype.constructor  === Object.constructor      // true!!!
+        Boolean.constructor.prototype.constructor  === Object.constructor     // true!!!
+
+        Function.constructor.prototype  === Object.constructor.prototype                            // true!!!
+        Array.constructor.prototype.constructor.prototype   === Object.constructor.prototype        // true!!!
+        Number.constructor.prototype.constructor.prototype   === Object.constructor.prototype       // true!!!
+        String.constructor.prototype.constructor.prototype   === Object.constructor.prototype       // true!!!
+        Boolean.constructor.prototype.constructor.prototype   === Object.constructor.prototype      // true!!!
+          </pre>
+          <p>
+            举个例子,给原生的<code>Object</code> 对象添加一个属性<code>xy</code> ;
+          </p>
+          <pre>
+	Obejct.prototype.xy = "xy";
+	console.log( Boolean.xy ); // "xy"
+	console.log( Number.xy );  // "xy"
+	console.log( String.xy );  // "xy"
+	console.log( Array.xy );   // "xy"
+	console.log( Object.xy );  // "xy"
+          </pre>
+          <p>
+            这个做法是用来举例的，实际运用中<em>反对</em>这样运用,因为这样做会污染<em>原型对象</em> ；根据js中的定义:
+          </p>
+          <ol>
+            <li>
+              Javascript 只有一种结构：对象。
+            </li>
+            <li>
+              JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依此层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
+            </li>
+          </ol>
+          <p>
+            JS中的所有对象最终都是共享同一个<em>原型对象</em><code>prototype-object。</code>
+          </p>
           <nav>
             <ul class="pager">
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
+              <li><a href="#">前一个</a></li>
+              <li><a href="#">下一个</a></li>
             </ul>
           </nav>
 
@@ -74,19 +224,19 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <h4></h4>
-            <p></p>
+            <h4>对象</h4>
+            <p>Javascript 只有一种结构：对象。</p>
           </div>
           <div class="sidebar-module">
             <h4>日志</h4>
             <ol class="list-unstyled">
-              <li><a href="./logs/prototype/index.html">prototype</a></li>
+              <li><a href="#">prototype</a></li>
             </ol>
           </div>
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
-
+              <li><a href="https://github.com/owlyme/owlyme.github.io/wiki/constructor-prototype">在GitHub查看</a></li>
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->
