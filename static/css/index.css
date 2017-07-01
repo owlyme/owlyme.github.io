@@ -1,8 +1,9 @@
-@media screen  {
+@media screen and (max-width: 99999px) {
     html,body{
+        position: relative;
         width: 100%;
         height: 100%;
-        background-image: url(./images/stardust.png);
+        background-image: url(../../images/stardust.png);
         overflow: hidden;
     }
     header{
@@ -32,7 +33,6 @@
         top: 0;
         width: 100%;
         height: 100%;
-        min-width: 300px;
         padding: 5px 15px;
         overflow: hidden;
         box-shadow: 0 0 5px #444;
@@ -102,7 +102,9 @@
     }
     .rotate-clockwise h1,
     .rotate-anticlockwise h1{
-        padding: 0 60px;
+        margin: 0;
+        height: 60px;
+        line-height: 60px;
     }
     .rotate-back{
         position: absolute;
@@ -125,16 +127,17 @@
         left: -60px;
     }
     .rotate-back h1{
-        padding: 0 160px;
-        height: 60px;
+        padding: 0 100px;
+        min-height: 60px;
         line-height: 60px;
-        font-size: 1.1em;
+        height: auto;
+        font-size: 2.4em;
         border-bottom: 1px solid #776E65;
         border-bottom-style: inset;
     }
     .back-to-home{
         position: absolute;
-        top: 20px;
+        top: 10px;
         left: 20px;
         width: 40px;
         height: 40px;
@@ -144,7 +147,7 @@
         border-radius: 20px;
         background: #fffff;
         background-repeat: none;
-        background-image: url(./images/back-icon.png);
+        background-image: url(../../images/back-icon.png);
         cursor: pointer;
         transition: opacity 0.2s;
     }
@@ -160,7 +163,7 @@
         font-size: 1.3em;
         text-align: center;
         box-shadow: 0 0 0 3px #5a5a5a;
-        background-image: url(./images/windmill.jpg);
+        background-image: url(../../images/windmill.jpg);
     }
     .blog:hover{ cursor: pointer;  }
     .back-to-home:hover{ opacity: 1;}
@@ -168,9 +171,10 @@
 
 @media screen and (max-width: 720px){
     html,body{
+        position: relative;
         width: 100%;
         height: 100%;
-        background-image: url(./images/stardust.png);
+        background-image: url(../../images/stardust.png);
         overflow: hidden;
     }
     header{
@@ -199,11 +203,10 @@
         top: 0;
         width: 100%;
         height: 100%;
-        min-width: 300px;
-        padding: 5px 15px;
+        padding: 0 15px;
         overflow: hidden;
         box-shadow: 0 0 5px #444;
-        font-size: 0.6em;
+        font-size: 1em;
         transition: top 0.3s, left 0.3s, transform 0.3s ,width 0.3s;
     }
     .blade1{
@@ -212,27 +215,22 @@
         background: #FCA636;
     }
     .blade2{
-        top: 350px;
+        top: 360px;
         right: 0;
         background: #ECEAE1;
         text-align: right;
     }
     .blade3{
-        top: 400px;
+        top: 420px;
         left: 0;
         background: #33BB7B;
     }
     .blade4{
-        top: 450px;
+        top: 480px;
         right: 0;
         background: #4CB5FA;
         text-align: right;
     }
-    .blade h1 a{
-        text-decoration: none;
-        color : #FFFFFF;
-    }
-    .blade2 h1 a{ color: #776E65;}
     .blade .img-box{
         width: 100%;
         padding:20px 50px;
@@ -270,16 +268,16 @@
     }
     .rotate-clockwise h1,
     .rotate-anticlockwise h1{
-        padding: 0 25px;
+        margin: 0;
+        height: 60px;
+        line-height: 60px;
     }
     .rotate-back{
         top: 0;
         left: 0;
         width: 100%;
         text-align: left;
-        padding: 0 20px;
-        overflow: scroll;
-        overflow-x: hidden;
+        overflow: hidden;
         -webkit-transform: rotate(0);
         -moz-transform: rotate(0);
         -ms-transform: rotate(0);
@@ -289,21 +287,22 @@
     .rotate-back *{
         text-align: left;
     }
+    .rotate-back h1{
+        padding: 0 0 0 60px;
+        min-height: 60px;
+        line-height: 60px;
+        height: auto;
+        font-size: 2.4em;
+        border-bottom: 1px solid #776E65;
+        border-bottom-style: inset;
+    }
     .rotate-down{
         top: 100%;
         left: -60px;
     }
-    .rotate-back h1{
-        padding: 0 60px;
-        height: 60px;
-        line-height: 60px;
-        font-size: 2em;
-        border-bottom: 1px solid #776E65;
-        border-bottom-style: inset;
-    }
     .back-to-home{
         position: absolute;
-        top: 20px;
+        top: 10px;
         left: 20px;
         width: 40px;
         height: 40px;
@@ -313,7 +312,7 @@
         border-radius: 20px;
         background: #fffff;
         background-repeat: none;
-        background-image: url(./images/back-icon.png);
+        background-image: url(../../images/back-icon.png);
         cursor: pointer;
         transition: opacity 0.09s;
     }
@@ -329,7 +328,7 @@
         font-size: 1.3em;
         text-align: center;
         box-shadow: 0 0 0 3px #5a5a5a;
-        background-image: url(./images/windmill.jpg);
+        background-image: url(../../images/windmill.jpg);
     }
     .blog:hover{ cursor: pointer;  }
     .back-to-home:hover{ opacity: 1;}
@@ -387,7 +386,6 @@
 @font-face
 {
    font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
-   
 }
 .font-style{
     font-family:myFirstFont;
