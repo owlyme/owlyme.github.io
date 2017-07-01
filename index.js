@@ -1,6 +1,7 @@
 (function(){
     var _body= $("body"),
         backHome = $(".back-to-home"),
+        content = $(".content"),
         blades = $(".blade");
 
     var curEle,
@@ -10,10 +11,9 @@
         top=[];
 
     for(var i =0; i<blades.length; i++){
-        left.push($(blades[i]).css("left"));
-        top.push($(blades[i]).css("top"));
+        left.push( $(blades[i]).css("left") );
+        top.push( $(blades[i]).css("top") );
     }
-
     $(window).resize(function(evt) {
         left=[];
         top=[];
@@ -37,8 +37,7 @@
     blades.hover(function(evt){
         _index = $(this).index();
         if( !done ) return;
-         value = _index%2 ? -1 : 1;
-         $(this).css("left",(parseInt(left[_index])*.8*value)+"px");
+         $(this).css("left",(parseInt(left[_index])*.8)+"px");
          $(this).css("top",(parseInt(top[_index])*0.9)+"px");
         },function(evt){
         if( !done ) return;
@@ -47,6 +46,7 @@
     });
 
     blades.on("click",function(evt){
+       // content.css("overflow","scroll");
         done = 0;
         curEle  = $(this);
         backHome.fadeIn("slow");
@@ -60,10 +60,10 @@
         },500);
     });
     backHome.on("click",function (evt) {
+        //content.css("overflow","auto");
         _body.css("overflow","hidden");
         backHome.css("display","none");
         blades.removeClass("rotate-back rotate-down").css("z-index",0);
-        console.log("click: "+_index);
         curEle.css("left",left[_index]);
         curEle.css("top",top[_index]);
     });
