@@ -24,7 +24,7 @@
         if( parseInt( _body.css("width") ) >= 720 ){
             top = ["300px","300px","400px","400px"];
         }else {
-            top = ["300px","350px","400px","450px"];
+            top = ["300px","360px","420px","480px"];
         };
         for(var i =0; i<blades.length; i++){
             if( parseInt($(blades[i]).css("top")) === 0 ){
