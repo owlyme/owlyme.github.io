@@ -1,5 +1,5 @@
 #files ingnore
 .idea
-/index1/*
-/font/*
-/test-obj/*
+index1/
+font/
+test-obj/
