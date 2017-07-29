@@ -1,13 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>myfirst </title>
 	<link rel="stylesheet" type="text/css" href="myfirst.css" />
-	<script type="text/javascript" src="mytools.js"></script>	
-	<script type="text/javascript" src="basic.js"></script>
-	<script type="text/javascript" src="basedrag.js"></script>
-	<script type="text/javascript" src="myfirst.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="lock"></div>
@@ -190,7 +187,6 @@
 		</ul>	
 		<div class="footer">
 			<a href="###" class="p">百度分享</a>
-
 		</div>
 		<img class="share" src="./images/share.png">
 	</div>
@@ -243,19 +239,20 @@
 		</div>
 	</div>
 
-	<div id="banner">
-		<a class="first " href=""><img src="./images/banner1.jpg" alt="图片1"/></a>
-		<a class="second " href=""><img src="./images/banner2.jpg" alt="图片2"/></a>
-		<a class="third " href=""><img src="./images/banner3.jpg" alt="图片3"/></a>		
-		<strong ></strong>
+	<div id="banner " class="container">
+		<a class="first slide-box" href=""><img src="./images/banner1.jpg" alt="图片1"/></a>
+		<a class="second slide-box" href=""><img src="./images/banner2.jpg" alt="图片2"/></a>
+		<a class="third slide-box" href=""><img src="./images/banner3.jpg" alt="图片3"/></a>	
+		<h2 class='notice-text'>
+			
+		</h2>
 		<ul>
-			<li >●</li>
-			<li >●</li>
-			<li >●</li>
-		</ul>
-		<h2> </h2>		
+				<li class='notice-point'>●</li>
+				<li class='notice-point'>●</li>
+				<li class='notice-point'>●</li>
+	    </ul>
 	</div>
-	
+	<script type="text/javascript" src="myfirst.js"></script>
 	<div id='photo'>
 		<dl>
 			<dt><img src="./images/wait_load.jpg" bigsrc="./images/p1big.jpg" xsrc="./images/p1.jpg" class="photoes"/></dt>
