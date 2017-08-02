@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	html, body{
+		height: 100%;
+		position: relative;
+		background: url(./qinghaihu.jpg);
+	}	
+	@media (min-width: 920px){
+		.head{
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 60px;
+			background: blue;
+		}
+		.footer{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 40px;
+			background: #999;
+		}
+		.row{
+			padding-top: 62px;
+			padding-bottom: 42px;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.row .col{			
+			position: relative;
+			float: left;
+			height: 100%;
+			border: 2px solid rgba(5,5,5,0);
+			overflow-y: auto;
+		}
+		.row .col1{
+			width: 12.5%;
+		}
+		.row .col2{
+			width: 25%;
+		}
+		.row .col3{
+			width: 37.5%;
+		}
+		.row .col4{
+			width: 50%;
+		}
+		.row .col5{
+			width: 62.5%;
+		}
+		.row .col6{
+			width: 75%;
+		}
+		.row .col7{
+			width: 87.5%;
+		}
+		.row .col8{
+			width: 100%;
+		}
+		.up{
+			height: 60%;
+			background: orange;
+		}
+		.down{
+			height: 40%;
+			background: blue;
+		}
+		.top{
+			position: absolute;
+			top: 0;
+			height: 40px;			
+			width: 100%;
+			background: red;
+		}
+		.middle{
+			height: 100%;
+			padding-top: 45px;
+			padding-bottom: 65px;
+			background: teal;
+			overflow: hidden;
+		}
+		.bottom{
+			position: absolute;
+			bottom: 0px;				
+			width: 100%;
+			height: 60px;
+			background: red;
+		}
+		.inside{
+			height: 100%;
+			overflow: auto;
+		}
+	}
+	@media (min-width: 737px) and (max-width: 920px){
+		.head{
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 60px;
+			background: blue;
+		}
+		.footer{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 40px;
+			background: #999;
+		}
+		.row{
+			padding-top: 62px;
+			padding-bottom: 42px;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.row .col{			
+			position: relative;
+			float: left;
+			height: 100%;
+			border: 2px solid rgba(5,5,5,0);
+			overflow-y: auto;
+		}
+		.row .col-mid-1{
+			width: 50%;
+			height: 10%;
+		}
+		.row .col-mid-2{
+			width: 100%;
+			height: 45%;
+		}
+		.up{
+			height: 60%;
+			background: orange;
+		}
+		.down{
+			height: 40%;
+			background: blue;
+		}
+		.top{
+			position: absolute;
+			top: 0;
+			height: 40px;			
+			width: 100%;
+			background: red;
+		}
+		.middle{
+			height: 100%;
+			padding-top: 45px;
+			padding-bottom: 65px;
+			background: teal;
+			overflow: hidden;
+		}
+		.bottom{
+			position: absolute;
+			bottom: 0px;				
+			width: 100%;
+			height: 60px;
+			background: red;
+		}
+		.inside{
+			height: 100%;
+			overflow: auto;
+		}
+	}
+	@media (min-width: 320px) and (max-width: 736px){
+		.head{
+			display: none;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 60px;
+			background: blue;
+		}
+		.footer{
+			display: none;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 40px;
+			background: #999;
+		}
+		.row{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.row .col{			
+			position: relative;
+			float: left;
+			height: 100%;
+			border: 2px solid rgba(5,5,5,0);
+			overflow-y: auto;
+		}
+		.row .col-sim-1{
+			display: none;
+		}
+		.row .col-sim-2{
+			width: 100%;
+			height: 50%;
+		}
+		.up{
+			height: 60%;
+			background: orange;
+		}
+		.down{
+			height: 40%;
+			background: blue;
+		}
+		.top{
+			position: absolute;
+			top: 0;
+			height: 40px;			
+			width: 100%;
+			background: red;
+		}
+		.middle{
+			height: 100%;
+			
+			background: teal;
+			overflow: hidden;
+		}
+		.bottom{
+			position: absolute;
+			bottom: 0px;				
+			width: 100%;
+			height: 60px;
+			background: red;
+		}
+		.inside{
+			height: 100%;
+			overflow: auto;
+		}
+	}
+	</style>
+</head>
+<body >
+<div class="head">
+	<button>style1</button>
+	<button>style2</button>
+	<button>style3</button>
+	<button>bigger</button>
+	<button>smaller</button>
+</div>
+<div class="row">
+	<div class="col col2 col-mid-1 col-sim-1">
+		<p>hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao</p>
+	</div>
+	<div class="col col2 col-mid-1 col-sim-1">
+		<div class="two up"></div>
+		<div class="two down"></div>
+	</div>
+	<div class="col col2 col-mid-2 col-sim-2">
+		<div class="three top"></div>
+		<div class="three middle">
+			<div class="inside">
+			<p>hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao</p><p>hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao</p><p>hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao</p><p>hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihaosdada</p>
+			</div>
+		</div>
+		<div class="three bottom"></div>
+	</div>
+	<div class="col col2 col-mid-2 col-sim-2">
+		<p>hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao</p><p>hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihao hihaosdada</p>
+	</div>
+</div>
+<div class="footer"></div>
+<script type="text/javascript">
+	var btns = document.querySelectorAll('button'),
+		cols = document.querySelectorAll('.col'),
+		twos = document.querySelectorAll('.two'),
+		threes = document.querySelectorAll('.three');
+	var value = 60;
+		btns.forEach(function function_name(ele,index) {
+			if( index < 3){
+				var arr = [];
+				if (index == 0){
+					arr=['col col1','col col2','col col3','col col2'];
+				}else if(index ==1){
+					arr=['col col1','col col1','col col4','col col2'];
+				}else if(index ==2){
+					arr=['col col1','col col1','col col5','col col1'];
+				};
+				ele.addEventListener('click',function(){
+					cols[0].className = arr[0];
+					cols[1].className = arr[1];
+					cols[2].className = arr[2];
+					cols[3].className = arr[3];		
+				});
+			}else{
+				ele.addEventListener('click',function (evt) {
+					var target = evt.target;
+					if( target.innerText == 'bigger') {
+						value += 10;
+					}else{
+						value -= 10;
+					}
+					twos[0].style.height = value+'%';
+					twos[1].style.height = (100-value)+'%';
+				})
+			}
+			
+		});
+
+
+
+</script>
+</body>
+</html>
