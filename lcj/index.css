@@ -1,0 +1,391 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Pingfang SC", "Microsoft Yahei", "WenQuanYi Micro Hei", sans-serif;
+}
+ul li{
+	list-style: none;
+}
+/*主界面*/
+.main-page{
+	position: absolute;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	width: 100%;
+	height: 100%;
+}
+.main-page header{
+	position:absolute;
+	width: 100%;
+	top: 0px;
+	height: 45px;
+	line-height: 45px;
+	color: #111 ;	
+}
+.main-page header h4{
+	text-align: center;
+	font-size: 18px;
+}
+.main-page section {
+	width: 100%;
+	height: 100%;
+}
+/*视屏框*/
+.main-page .video-box {
+	position: relative;		
+	height: 211px;
+	background: #111;
+}
+.video-box >img{
+	width: 100%;
+	height: 100%;
+}
+.main-page .video-box .curr-teacher{
+	position:absolute;
+	top: 0px;
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	background: rgba(230,230,230,0.4);
+}
+.video-box .curr-teacher img{
+	display: block;
+	margin: 5px 15px;
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+}
+/*nav                  */
+.main-page .component-box{
+	position: relative;
+	padding-top: 30px;
+	height: 366px;
+}
+.main-page ul {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	overflow: hidden;
+	border-bottom: 1px solid #888;
+}
+.main-page ul li{
+	list-style: none;
+	width: 25%;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	text-align: center;
+}
+
+/*视频下方功能框*/
+.main-page .content{
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+.content .zhibo {
+	display: none; /*广告板 ---------------------------*/
+	padding-right: 60px;
+}
+.content .zhibo .message {
+	margin-top:20px;
+	font-size: 12px;
+	min-height: 20px;
+	line-height: 20px;
+}
+.message .customer-type{
+	display: inline-block;
+	color: #FFFFFF;
+	padding: 3px 5px;
+	min-width: 32px;
+	height: 23px;
+	border-radius: 8px;
+	font-size: 12px;
+	font-weight: 700;
+}
+.message .customer-name{
+	color: #0F91FF;
+}
+.zhibo .message .wisper{
+	display: inline-block;
+	padding: 2px;
+	background: #f00;
+	color: #fff;
+	font-weight: 700;
+}
+.content .video-list{
+	display: none; 
+}
+.content .video-list>div{
+	margin-top: 5px;
+	border-bottom: 1px dashed #555;
+}
+.video-list .only-img img{
+	width: 100%;
+}
+.video-list .text-img{
+	overflow: hidden;
+}
+.video-list .text-img img{
+	display: block;
+	float: left;
+	width: 50%;
+}
+.video-list .text-img .text{
+	float: left;
+	width: 50%;
+	padding-left: 20px;
+	font-size: 13px;
+	line-height: 20px;
+}
+.video-list a.more-video{
+	display: block;
+	position: absolute;
+	bottom: 30px;
+	clear: both;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: center;
+	color: #FFFFFF;
+	background: #FF9800;
+	text-decoration: none;
+}
+/*cai jing zi xun*/
+.content .information{
+	display: none;
+	padding-top: 20px;
+	padding-right: 60px;
+	font-size: 14px;
+}
+.content .information .info{
+	padding: 5px;
+	margin-top: 10px;
+	overflow: hidden;
+	border-bottom: 1px solid #777;
+}
+.information .info img{
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	border-radius: 8px;
+}
+.information .info .notice{
+	color: #f00;
+	font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*广告板*/
+.main-page .ad-banner{
+	 /*广告板 ---------------------------*/
+	position: absolute;
+	top: 100px;
+	width: 100%;
+	z-index: 99;
+}
+.main-page .ad-banner img{
+	width: 100%;
+}
+
+
+
+/*客户按钮*/
+.main-page .component-box .customer-btn{
+	position: absolute;
+	top: 50px;
+	right: 13px;
+	width: 50PX;
+	font-size: 11px;
+	z-index:9;
+}
+.component-box .customer-btn div{
+	margin-top: 30px;
+}
+.component-box .customer-btn img{
+	display: block;
+	margin-left: 10px;
+	width: 33px;
+	height: 33px;
+}
+.component-box .customer-btn span{
+	display: block;
+	padding-top: 5px;
+}
+
+
+
+
+.main-page footer{
+	position:absolute;
+	width: 100%;
+	padding: 0 80px;
+	bottom: 0px;
+	height: 45px;
+	line-height: 45px;
+	color: #111 ;
+	border-top: 1px solid #888;
+	overflow: hidden;
+	background: #fff;
+}
+.main-page .edit-box .emjo{
+	position:absolute;
+	overflow: hidden;
+	left: 0px;
+    top: 0;
+    width: 50px;
+    height: 45px;
+}
+.edit-box .emjo img{
+	position:absolute;	
+	display: block;
+	left: -45px;
+    top: -22PX;
+    width: 142px;
+    height: 82px;
+}
+.edit-box input{
+	position: relative;
+    display: block;
+    top: 4px;
+    margin: 0 5px;
+    padding: 3px 5px;
+    width: 100%;
+    height: 35px;
+    outline-style: none;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+.edit-box button{
+	position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    width: 71px;
+    height: 42px;
+    line-height: 20px;
+    font-size: 20px;
+    color: #fff;
+    background: #0377FF;
+    border-radius: 8px;
+}
+
+
+
+
+
+
+.golden{
+	background: #FF9019;
+}
+.red{
+	background: #f00;
+}
+.green{	
+	background: #09B472;
+}
+.nav-select{
+	color: #f55d54;
+}
+.clock{	
+	animation: myfirst 0.7s infinite ;
+	-moz-animation: myfirst 0.7s infinite;	/* Firefox */
+	-webkit-animation: myfirst 0.7s infinite;	/* Safari 和 Chrome */
+	-o-animation: myfirst 0.7s infinite;	/* Opera */
+	transform-origin:50% 10%;
+	-moz-transform-origin:50% 10%;
+	-webkit-transform-origin:50% 10%;
+	-o-transform-origin:50% 10%;
+	border-radius: 3px;
+}
+@keyframes myfirst{
+	0% {
+	    transform: rotate(10deg);
+	}
+	25% {
+	    transform: rotate(0deg);
+	}
+	50% {
+	    transform: rotate(-10deg);
+	}
+	75% {
+	    transform: rotate(0deg);
+	}
+	100% {
+	    transform: rotate(10deg);
+	}
+}
+@-moz-keyframes myfirst /* Firefox */
+{
+		0% {
+	    transform: rotate(10deg);
+	}
+	25% {
+	    transform: rotate(0deg);
+	}
+	50% {
+	    transform: rotate(-10deg);
+	}
+	75% {
+	    transform: rotate(0deg);
+	}
+	100% {
+	    transform: rotate(10deg);
+	}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+	0% {
+	    transform: rotate(10deg);
+	}
+	25% {
+	    transform: rotate(0deg);
+	}
+	50% {
+	    transform: rotate(-10deg);
+	}
+	75% {
+	    transform: rotate(0deg);
+	}
+	100% {
+	    transform: rotate(10deg);
+	}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+	0% {
+	    transform: rotate(10deg);
+	}
+	25% {
+	    transform: rotate(0deg);
+	}
+	50% {
+	    transform: rotate(-10deg);
+	}
+	75% {
+	    transform: rotate(0deg);
+	}
+	100% {
+	    transform: rotate(10deg);
+	}
+}
