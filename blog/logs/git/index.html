@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Blog Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="../../index.html">Home</a>
+          <a class="blog-nav-item" href="#">New features</a>
+          <a class="blog-nav-item" href="#">Press</a>
+          <a class="blog-nav-item" href="#">New hires</a>
+          <a class="blog-nav-item" href="#">About</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Owlyme Blog</h1>
+        <p class="lead blog-description">请在chrome浏览器的控制台中，运行查看以下代码，谢谢合作。</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+          <div class="blog-post">
+            <h2 class="blog-post-title">Git Bash</h2>
+            <p class="blog-post-meta">2017-08-07</p>
+            <p>关于git的工作原理, 没有比git官网上的解释更清楚详细的(<a href="https://git-scm.com/documentation">git官方文档</a>), 一下是个人归纳总一些常用方法, 掌握这些基本可以完成对项目的版本控制</p>
+            <h3>初始化一个git repository，<code>git init</code> </h3>
+            <p>运行git bash, 并<code>cd</code> 到相应的目录下, 输入一下命令</p>
+            <pre>git init </pre>            
+            <p>
+              这样一个git repository就生成了, 我们可以顺便看看刚生成的库,在当前目录下有没有发生什么,<code>ls -a</code>
+            </p>
+            <img src="./images/git-init.png">
+            <p>
+              与此同时我们会发现在我们的学习目录后多了<code>(master)</code>,这表示我们当前所在的分支(branch)是主分支master；
+            </p>
+            <h3>建立分支; <code>git branch 'your branch name'</code></h3>
+            <p>此时我们建立一个新的分支，命名为 me ，我们在git命令行里输入<code>git branch me</code> ，结果会报错；错误提示是没有一个有效的名为master对象，在此之前我们有给这个repository添加内容</p>
+            <img src="./images/git-branch.png">
+            <p>
+              这个出错暂时不说解决方法，先卖个关子>_<。
+            </p>
+            <h3>向repository添加内容 <code>git add </code></h3>
+            <p>在当前目录下建立一个新文件，命名README, 利用命令新建文件的方法有很多种
+            </p>
+            <pre> > README</pre>
+            <h4>
+              git add -A和 git add .  ，git add -u在功能上看似很相近，但还是存在一点差别
+            </h4>
+            <p>
+              git add . ：他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。
+            </p>            
+            <p>
+            git add -u ：他仅监控已经被add的文件（即tracked file），他会将被修改的文件提交到暂存区。add -u 不会提交新文件（untracked file）。（git add --update的缩写）</p>
+            <p>
+              git add -A ：是上面两个功能的合集（git add --all的缩写）
+            </p>
+            <p>
+              git add 'path': 指定添加某个被修改的文件，或新建的文件
+            </p>
+            <img src="./images/git-add.png">
+            <h3>提交，<code>git commit </code> </h3>
+            <pre>  git commit -a -m 'first commit' </pre>
+            <h4> git commit  -m "提交的描述信息"</h4>
+            <p>
+              如果我们这里不用-m参数的话，git将调到一个文本编译器（通常是vim）来让你输入提交的描述信息
+              可能一天下来，你对工作树中的许多文档都进行了更新（文档添加、修改、删除），但是我忘记了它们的名字，此时若将所做的全部更新添加到索引中，比较轻省的做法就是：
+            </p>
+            <h4> git commit -a -m "提交的描述信息"</h4>
+            <p>
+              git commit 命令的-a 选项可只将所有被修改或者已删除的且已经被git管理的文档提交倒仓库中。如果只是修改或者删除了已被Git 管理的文档，是没必要使用git add 命令的。           
+            </p>
+            <img src="./images/git-commit.png">
+            <p>若我们没有对所提交的内容进行任何修改或变动，提示 ‘On branch master  nothing to commit, working tree clean’</p>
+            <h3>解决<code>git branch</code>报错</h3>
+            <p>当提交成功后，再运行<code>git branch</code>，用<code>git checkout me</code>切换到'me'分支</p>
+            <img src="./images/git-branch-success.png">
+            <hr>
+            <p>切换到不同的分支是为了能更好的进行版本控制，便于在不同版本之间来回切换</p>
+          </div>
+          <nav>
+            <ul class="pager">
+              <li><a href="#">前一个</a></li>
+              <li><a href="#">下一个</a></li>
+            </ul>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>对象</h4>
+            <p>Javascript 只有一种结构：对象。</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>日志</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">prototype</a></li>              
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/owlyme/owlyme.github.io/wiki/constructor-prototype">在GitHub查看</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

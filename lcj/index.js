@@ -8,10 +8,15 @@ $(document).ready(function(){
 	  		component.css('display','none').eq(index).css('display','block');
 	  		$(this).addClass('nav-select').siblings().removeClass();
 	  		ad.css('display','none');
-
-
 	  });
 
+})();
+ 
+(function(){
+	var input = $('.edit-box input');
+	input.on('click',function(){
+		$(document ).scrollTop(0);
+	})
 })();
   
 

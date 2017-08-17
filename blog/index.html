@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
+    <meta name="keywords" content="个人博客,blog,owlyme">
+    <meta name="description" content="JavaScript,js,web develpment，前端开发">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
@@ -232,6 +233,9 @@
             <ol class="list-unstyled">
               <li><a href="#">prototype</a></li>
             </ol>
+            <ol class="list-unstyled">
+              <li><a href="./logs/git/index.html">Git Bash</a></li>
+            </ol>
           </div>
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
@@ -259,5 +263,11 @@
     <script src="./dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+      $('.list-unstyled li a').on('click',function(){       
+        $('.blog-post').remove();
+        $('.blog-main').load('./logs/git/index.html');
+      });      
+    </script>
   </body>
 </html>
